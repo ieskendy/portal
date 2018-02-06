@@ -1,0 +1,29 @@
+<!--
+This is the component view that represents the 'Home' tab.
+Feel free to customize layouts and components to change how the tab view looks.
+-->
+<GridLayout columns="*" rows="*" class="page-content" loaded="onLoaded">
+  <StackLayout class="container" col="0" row="0">
+      <StackLayout>
+        <Label text="LVCC Announcements" class="head-title" textWrap="true"/>
+      </StackLayout>
+      <GridLayout rows="*" class="announcements-container" >
+        <ListView id="announcements">
+            <ListView.itemTemplate>
+              <StackLayout>
+                <StackLayout class="announcements"  tap="showAnnouncement">
+                  <GridLayout columns="115,*" rows="auto">
+                    <StackLayout row="0" col="0">
+                      <Label text="{{ date }}" backgroundColor="{{ color }}" class="announcements-date" textWrap="true"/>
+                    </StackLayout>
+                    <StackLayout row="0" col="1">
+                      <Label text="{{ title }}" class="announcements-title" textWrap="true"/>
+                    </StackLayout>
+                  </GridLayout>
+                </StackLayout>
+              </StackLayout>
+            </ListView.itemTemplate>
+        </ListView>
+      </GridLayout>
+  </StackLayout>
+</GridLayout>

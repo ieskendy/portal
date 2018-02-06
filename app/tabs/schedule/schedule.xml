@@ -1,0 +1,105 @@
+<Page class="page app-page"
+	xmlns:dd="nativescript-drop-down"
+	xmlns="http://schemas.nativescript.org/tns.xsd"
+	xmlns:sd="nativescript-pro-ui/sidedrawer"
+	xmlns:lv="nativescript-pro-ui/listview"
+	loaded="pageLoaded"
+	>
+	<page.ActionBar>
+		<ActionBar class="action-bar">
+			<NavigationButton tap="goBack" android.systemIcon="ic_menu_back" ios.position="right" />
+			<StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left">
+				<Label class="project-title" text="LVCC | Course & Schedule" textWrap="true"/>
+			</StackLayout>
+		</ActionBar>
+	</page.ActionBar>
+	<GridLayout rows="*" columns="*">
+		<ScrollView>
+			<StackLayout col="0" row="0">
+	        	<StackLayout class="dd-container" visibility="{{ schedule_form ? 'visible' : 'collapsed' }}">
+	                <StackLayout class="container">
+	                    <StackLayout>
+	        				<Label text="Schedule" class="head-title head-name" textWrap="true"/>
+	        			</StackLayout>
+	        			<StackLayout class="dd-menu">
+	            			<StackLayout>
+		            			<Label text="Section/Block"  class="dd-name"/>
+	            			</StackLayout>
+	                        <StackLayout class="drop-down">
+	                            <dd:DropDown selectedIndex="{{ selectedSection }}"
+	                                opened="dropDownOpened" closed="dropDownClosed"
+	                                selectedIndexChanged="dropDownSelectedIndexChanged"
+	                            />
+	                        </StackLayout>
+	        				<StackLayout>
+	                    		<Label text="Day" class="dd-name"/>
+	        				</StackLayout>
+	                        <StackLayout class="drop-down">
+	                            <dd:DropDown  selectedIndex="{{ selectedDay }}"
+	                                opened="dropDownOpened" closed="dropDownClosed"
+	                                selectedIndexChanged="dropDownSelectedIndexChanged"
+	                            />
+	                        </StackLayout>
+	        			</StackLayout>
+	                     <StackLayout class="buttons">
+	                        <Button tap="viewSchedule" text="Submit" class="font-awesome dd-button"/>
+	                    </StackLayout>
+	                </StackLayout>
+	            </StackLayout>
+	        </StackLayout>
+		</ScrollView>
+		<StackLayout  visibility="{{ schedule_form ? 'collapsed' : 'visible' }}">
+			<GridLayout columns="*" rows="*">
+				<StackLayout col="0" row="0" class="layout">
+					<GridLayout rows="auto" class="head">
+						<StackLayout row="0" col="0">
+							<Label text="&#xf060;" class="fa font-awesome backIcon" tap="back"/>
+						</StackLayout>
+						<StackLayout row="0" col="1">
+							<Label text="Monday" class="day-name" textWrap="true"/>
+						</StackLayout>
+					</GridLayout>
+					<GridLayout rows="*">
+						<ListView row="0" id="schedules" class="list-group">
+					        <ListView.itemTemplate>
+					            <StackLayout width="100%">
+					            	<StackLayout class="schedule-container">
+					            		<StackLayout class="subject-name">
+					            			<StackLayout>
+				            					<Label text="{{ course_title }}" textWrap="true"/>
+				            				</StackLayout>
+					            		</StackLayout>
+										<StackLayout>
+											<GridLayout rows="auto" columns="110,*">
+										    	<Label text="Time Start:" class="sched-field" textWrap="true" row="0" col="0"/>
+										    	<Label text="{{ time_start }}" class="" textWrap="true" row="0" col="1"/>
+											</GridLayout>
+										</StackLayout>
+										<StackLayout>
+											<GridLayout rows="auto" columns="110,*">
+										    	<Label text="Time End:" class="sched-field" textWrap="true" row="0" col="0"/>
+										    	<Label text="{{ time_end }}" class="" textWrap="true" row="0" col="1"/>
+											</GridLayout>
+										</StackLayout>
+										<StackLayout>
+											<GridLayout rows="auto" columns="110,*">
+										    	<Label text="Room:" class="sched-field" textWrap="true" row="0" col="0"/>
+										    	<Label text="{{ room }}" class="" textWrap="true" row="0" col="1"/>
+											</GridLayout>
+										</StackLayout>
+										<StackLayout>
+											<GridLayout rows="auto" columns="110,*">
+										    	<Label text="Instructor:" class="sched-field" textWrap="true" row="0" col="0"/>
+										    	<Label text="{{ instructor }}" class="" textWrap="true" row="0" col="1"/>
+											</GridLayout>
+										</StackLayout>
+									</StackLayout>
+					            </StackLayout>
+					        </ListView.itemTemplate>
+					    </ListView>
+					</GridLayout>
+				</StackLayout>
+			</GridLayout>
+		</StackLayout>
+	</GridLayout>
+</Page>

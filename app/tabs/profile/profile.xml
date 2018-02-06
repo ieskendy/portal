@@ -1,0 +1,114 @@
+<!--
+This is the component view that represents the 'Browse' tab.
+Feel free to customize layouts and components to change how the tab view looks.
+-->
+<ScrollView>
+<GridLayout columns="*" rows="*, *" class="page-content" loaded="onLoaded">
+  <StackLayout class="student-info" col="0" row="0">
+    <StackLayout>
+      <GridLayout rows="auto" columns="145,*">
+        <StackLayout row="0" col="0" class="img-con">
+          <Image src="~/img/user.jpg" class="user-image"/>
+          <StackLayout row="0" col="0">
+      </StackLayout>
+        </StackLayout>
+        <StackLayout row="0" col="1">
+          <StackLayout>
+            <StackLayout>
+              <GridLayout rows="auto" columns="auto,*">
+                <StackLayout row="0" col="0">
+              <Label text="&#xf007;" class="fa font-awesome info-icon" textWrap="true"/>
+            </StackLayout>
+            <StackLayout row="0" col="1">
+              <Label text="Name" class="info-title" textWrap="true"/>
+                <Label text="Aron Joshua Bagtas" class="info" textWrap="true"/>
+            </StackLayout>
+              </GridLayout>
+            </StackLayout>
+            <StackLayout>
+              <GridLayout columns="auto,*" rows="auto" class="info-container">
+            <StackLayout row="0" col="0">
+              <Label text="&#xf003;" class="fa font-awesome info-icon" textWrap="true"/>
+            </StackLayout>
+            <StackLayout row="0" col="1">
+              <Label text="Email Address" class="info-title" textWrap="true"/>
+              <Label text="email@emial" class="info" textWrap="true"/>
+            </StackLayout>
+          </GridLayout>
+            </StackLayout>
+            <StackLayout>
+              <GridLayout columns="auto,*" rows="auto" class="info-container">
+            <StackLayout row="0" col="0">
+              <Label text="&#xf02d;" class="fa font-awesome info-icon" textWrap="true"/>
+            </StackLayout>
+            <StackLayout row="0" col="1">
+              <Label text="Course" class="info-title" textWrap="true"/>
+              <Label text="BS Information System" class="info" textWrap="true"/>
+            </StackLayout>
+          </GridLayout>
+            </StackLayout>
+            <StackLayout>
+              <GridLayout columns="auto,*" rows="auto" class="info-container">
+              <StackLayout row="0" col="0">
+                <Label text="&#xf198;" class="fa font-awesome info-icon" textWrap="true"/>
+              </StackLayout>
+              <StackLayout row="0" col="1">
+                <Label text="ID Number" class="info-title" textWrap="true"/>
+                <Label text="14-20130" class="info" textWrap="true"/>
+              </StackLayout>
+            </GridLayout>
+            </StackLayout>
+            <StackLayout>
+              <GridLayout columns="auto,*" rows="auto" class="info-container">
+              <StackLayout row="0" col="0">
+                <Label text="&#xf095;" class="fa font-awesome info-icon" textWrap="true"/>
+              </StackLayout>
+              <StackLayout row="0" col="1">
+                <Label text="Contact Number" class="info-title" textWrap="true"/>
+                <Label text="0902134512" class="info" textWrap="true"/>
+              </StackLayout>
+            </GridLayout>
+            </StackLayout>
+            <StackLayout>
+              <GridLayout columns="auto,*" rows="auto" class="info-container">
+              <StackLayout row="0" col="0">
+                <Label text="&#xf10c;" class="fa font-awesome info-icon" textWrap="true"/>
+              </StackLayout>
+              <StackLayout row="0" col="1">
+                <Label text="Scholarship Status" class="info-title" textWrap="true"/>
+                <Label text="Partial Scholar" class="info" textWrap="true"/>
+              </StackLayout>
+            </GridLayout>
+            </StackLayout>
+          </StackLayout>
+
+        </StackLayout>
+      </GridLayout>
+    </StackLayout>
+  </StackLayout>
+  <StackLayout class="nav-buttons" row="1">
+    <StackLayout>
+  <GridLayout rows="auto" columns="*,*">
+    <StackLayout row="0" col="0" class="navigation-button grades" tap="grades">
+      <Label text="&#xf02d;" class="fa font-awesome home-icon" />
+                    <Label text="Grades" class="nav-title" textWrap="true"/>
+    </StackLayout>
+    <StackLayout row="0" col="1" class="navigation-button sched" tap="schedule">
+      <Label text="&#xf073;" class="fa font-awesome home-icon" />
+                    <Label text="Course & Schedule" class="nav-title" textWrap="true" />
+    </StackLayout>
+  </GridLayout>
+  <GridLayout rows="auto" columns="*,*">
+    <StackLayout row="0" col="0" class="navigation-button request" tap="document">
+      <Label text="&#xf298;" class="fa font-awesome home-icon" />
+                    <Label text="Document Requests" class="nav-title" textWrap="true"/>
+    </StackLayout>
+    <StackLayout row="0" col="1" class="navigation-button misc" tap="fees">
+      <Label text="&#xf0d6;" class="fa font-awesome home-icon" />
+                    <Label text="Miscellaneous fee" textWrap="true" class="nav-title" />
+    </StackLayout>
+  </GridLayout>
+    </StackLayout>
+</StackLayout>
+</GridLayout>
+</ScrollView>

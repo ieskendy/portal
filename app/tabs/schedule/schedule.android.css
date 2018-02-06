@@ -1,0 +1,62 @@
+.schedule-container {
+	padding: 10;
+	border-bottom-width: 1;
+	font-size: 18;
+}
+.dd-menu {
+	margin-top: 15;
+	margin-bottom: 15;
+}
+.dd-name {
+	margin-top: 15;
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+}
+.head{
+	padding: 20,0,20,0;
+	border-top-left-radius: 20;
+	border-top-right-radius: 20;
+	background-color: #30bcff;
+}
+.backIcon {
+	padding: 5,0,5,20;
+	font-size: 15;
+	color: #fff;
+}
+.day-name {
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: .1;
+	font-family: abel-regular;
+	font-size: 20;
+	color: #fff;
+}
+.sched-field {
+	padding-right: 10;
+	font-weight: bold;
+}
+.subject-name{
+	padding-top: 10;
+	padding-bottom: 10;
+	text-align: center;
+	font-weight: bold;
+}
+.SubjectCode {
+	margin-left: 50;
+}
+.error-message {
+	margin-top: 10;
+	min-height: 50px;
+	width: 70%;
+	background-color: #df1b24;
+	border-radius: 10px;
+	margin-bottom: 20px;
+}	
+.message {
+	font-size: 20px;
+	margin: 10px;
+	color: #fff;
+	text-align: center;
+}

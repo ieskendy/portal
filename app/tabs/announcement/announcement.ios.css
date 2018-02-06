@@ -1,0 +1,40 @@
+.announcement-date {
+	margin: 5;
+	padding: 5,10,5,5;
+	text-align: center;
+	font-weight: bold;
+	border-right-width: 1;
+	border-right-color: white;
+	color: #fff;
+}
+.month {
+	font-size: 20;
+}
+.day {
+	font-size: 20;
+}
+.year {
+	font-size: 15;
+}
+.con {
+	color: white;
+	margin-top: 20;
+	margin-left: 10;
+}
+.announcement-title {
+	font-size: 20;
+}
+.postBy {
+	font-weight: bold;
+	margin-right: 3;
+}
+.announcement-info {
+	margin-top: 10;
+	border-top-width: 2;
+	border-top-color: #30bcff;
+	background-color: #fff;
+}
+.announcement-content {
+	padding: 15,20,15,20;
+	line-height: 4;
+}
