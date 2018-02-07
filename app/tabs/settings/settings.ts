@@ -1,3 +1,4 @@
+import {topmost} from "ui/frame";
 import { EventData } from "data/observable";
 import { StackLayout } from "ui/layouts/stack-layout";
 
@@ -8,14 +9,17 @@ export function onLoaded(args: EventData) {
 
 export function isChangePersonalInformation() {
   console.log('Changing Personal Information');
+  topmost().navigate("tabs/bio/bio");
 }
 
 export function isChangePassword() {
   console.log('Changing Password');
+  topmost().navigate("tabs/password/password");
 }
 
 export function isChangeUsername() {
   console.log('Changing Username');
+  topmost().navigate("tabs/username/username");
 }
 
 export function doLogout() {
