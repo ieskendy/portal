@@ -11,10 +11,10 @@
 			</StackLayout>
 		</ActionBar>
 	</page.ActionBar>
-	<ScrollView>
-		<GridLayout rows="*" columns="*"> 
-			<StackLayout row="0" col="0">
-			    <StackLayout visibility="{{ academic_year ? 'visible' : 'collapsed' }}">
+	<GridLayout rows="*" columns="*">
+		<ScrollView>
+			<StackLayout col="0" row="0">
+				<StackLayout visibility="{{ academic_year ? 'visible' : 'collapsed' }}">
 					<StackLayout class="error-message" visibility="{{ message ? 'visible' : 'collapsed' }}">
 						<StackLayout class="error-container">
 							<Label class="message" text="{{ message }}" textWrap="true"/>
@@ -38,73 +38,76 @@
 	                    </StackLayout>
 	                </StackLayout>
 	    		</StackLayout>
-	    		<StackLayout visibility="{{ academic_year ? 'collapsed' : 'visible' }}">
-    				<StackLayout class="paymentInfo">
-    					<StackLayout>
-    						<GridLayout rows="*,*" columns="auto, *" class="head">
-								<AbsoluteLayout row="0" col="0">
-									<Label text="&#xf060;" class="fa font-awesome backIcon" tap="back"/>
-								</AbsoluteLayout>
-								<StackLayout row="0" col="1">
-									<Label text="Payments information" class="payment-text" textWrap="true"/>
-								</StackLayout>
-							</GridLayout>
-							<StackLayout >
-	                            <Label text="{{ semester }}" textWrap="true" class="semester"/>
-	                        </StackLayout>
-    					</StackLayout>
-    					<StackLayout class="info">
-			            	<StackLayout>
-			            		<GridLayout rows="auto,auto" columns="*,*" class="student-info">
-	                                <StackLayout row="0" col="0">
-                                        <Label text="Name:" textWrap="true" style.fontWeight="bold"/>
-                                        <Label class="data" text="{{ student.student_name }}" textWrap="true"/>
-	                                </StackLayout>
-	                                <StackLayout row="0" col="1">
-                                        <Label text="Student Number:" textWrap="true" style.fontWeight="bold"/>
-                                        <Label class="data" text="{{ student.student_number }}" textWrap="true"/>
-	                                </StackLayout>
-	                                <StackLayout row="1" col="0">
-                                        <Label text="Course & Year:" textWrap="true" style.fontWeight="bold"/>
-                                        <Label class="data" text="{{student.program_title}}" textWrap="true"/>
-	                                </StackLayout>
-	                                <StackLayout row="1" col="1">
-                                        <Label text="Scholarship Status:" textWrap="true" style.fontWeight="bold"/>
-                                        <Label class="data" text="{{ student.scholarship_status }}" textWrap="true"/>
-	                                </StackLayout>
-	                            </GridLayout>
-			            	</StackLayout>
-                        </StackLayout>
-                        <StackLayout class="table">
-                        	<StackLayout>
-			            		<GridLayout columns="*,*" rows="auto" class="table-field">
-			            			<Label text="Particulars" class="field" textWrap="true" row="0" col="0"/>
-			            			<Label text="Amount Paid" class="field" textWrap="true" row="0" col="1"/>
-			            			<!-- <Label text="Balance" class="field" textWrap="true"  row="0" col="2"/> -->
-		            			</GridLayout>
-		            		</StackLayout>
-                        </StackLayout>
-                        <GridLayout rows="*">
-	            			<ListView row="0" id="payments" class="listview"> 
-                                <ListView.itemTemplate>
-                                    <StackLayout class="table-data">
-                                        <GridLayout rows="auto" columns="*,*">
-                                            <Label class="data-info" text="{{ particular }}" textWrap="true" row="0" col="0" style.fontWeight="bold"/>
-                                            <Label class="data-info ctr" text="{{ amount_paid }}" textWrap="true" row="0" col="1"/>
-                                        </GridLayout>
-                                    </StackLayout>
-                                </ListView.itemTemplate>
-                            </ListView>
-	            		</GridLayout>
-	            		<StackLayout class="table-data">
-                            <GridLayout rows="auto" columns="*,*">
-                                <Label class="data-info ctr" text="Total" textWrap="true" row="0" col="0"/>
-                                <Label class="data-info ctr" text="{{ 'PHP ' + total }}" col="1" textWrap="true"/>
-                            </GridLayout>
-                        </StackLayout>
-    				</StackLayout>
-	    		</StackLayout>
 			</StackLayout>
-		</GridLayout>
-	</ScrollView>
+		</ScrollView>
+		<StackLayout class="layout" visibility="{{ academic_year ? 'collapsed' : 'visible' }}">
+			<ScrollView>
+				<GridLayout columns="*" rows="*">
+					<StackLayout col="0" row="0">
+						<StackLayout class="paymentInfo">
+							<StackLayout>
+								<GridLayout rows="*,*" columns="auto, *" class="head">
+									<StackLayout row="0" col="1">
+										<Label text="Payments information" class="payment-text" textWrap="true"/>
+									</StackLayout>
+								</GridLayout>
+								<StackLayout >
+			                        <Label text="{{ semester }}" textWrap="true" class="semester"/>
+			                    </StackLayout>
+							</StackLayout>
+							<StackLayout class="info">
+				            	<StackLayout>
+				            		<GridLayout rows="auto,auto" columns="*,*" class="student-info">
+			                            <StackLayout row="0" col="0">
+			                                <Label text="Name:" textWrap="true" style.fontWeight="bold"/>
+			                                <Label class="data" text="{{ student.student_name }}" textWrap="true"/>
+			                            </StackLayout>
+			                            <StackLayout row="0" col="1">
+			                                <Label text="Student Number:" textWrap="true" style.fontWeight="bold"/>
+			                                <Label class="data" text="{{ student.student_number }}" textWrap="true"/>
+			                            </StackLayout>
+			                            <StackLayout row="1" col="0">
+			                                <Label text="Course & Year:" textWrap="true" style.fontWeight="bold"/>
+			                                <Label class="data" text="{{student.program_title}}" textWrap="true"/>
+			                            </StackLayout>
+			                            <StackLayout row="1" col="1">
+			                                <Label text="Scholarship Status:" textWrap="true" style.fontWeight="bold"/>
+			                                <Label class="data" text="{{ student.scholarship_status }}" textWrap="true"/>
+			                            </StackLayout>
+			                        </GridLayout>
+				            	</StackLayout>
+			                </StackLayout>
+			                <StackLayout class="table">
+			                	<StackLayout>
+				            		<GridLayout columns="*,*" rows="auto" class="table-field">
+				            			<Label text="Particulars" class="field" textWrap="true" row="0" col="0"/>
+				            			<Label text="Amount Paid" class="field" textWrap="true" row="0" col="1"/>
+				            			<!-- <Label text="Balance" class="field" textWrap="true"  row="0" col="2"/> -->
+			            			</GridLayout>
+			            		</StackLayout>
+			                </StackLayout>
+			                <GridLayout rows="*">
+			        			<ListView row="0" id="payments" class="listview"> 
+			                        <ListView.itemTemplate>
+			                            <StackLayout class="table-data">
+			                                <GridLayout rows="auto" columns="*,*">
+			                                    <Label class="data-info" text="{{ particular }}" textWrap="true" row="0" col="0" style.fontWeight="bold"/>
+			                                    <Label class="data-info ctr" text="{{ amount_paid }}" textWrap="true" row="0" col="1"/>
+			                                </GridLayout>
+			                            </StackLayout>
+			                        </ListView.itemTemplate>
+			                    </ListView>
+			        		</GridLayout>
+			        		<StackLayout class="table-data">
+			                    <GridLayout rows="auto" columns="*,*">
+			                        <Label class="data-info ctr" text="Total" textWrap="true" row="0" col="0"/>
+			                        <Label class="data-info ctr" text="{{ 'PHP ' + total }}" col="1" textWrap="true"/>
+			                    </GridLayout>
+			                </StackLayout>
+						</StackLayout>
+					</StackLayout>
+				</GridLayout>
+			</ScrollView>
+		</StackLayout>
+	</GridLayout>
 </Page>

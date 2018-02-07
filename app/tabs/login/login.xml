@@ -8,8 +8,8 @@
  		</ActionBar>
 	</page.ActionBar>
 	<ScrollView>
-		<StackLayout>
-			<StackLayout class="container">
+		<GridLayout columns="*" rows="*">
+			<StackLayout class="container" row="0" col="0">
 				<StackLayout class="school">
 					<Image src="res://icon" stretch="none" horizontalAlignment="center" class="logo"/>
 					<Label text="La Verdad Christian College" class="lv-name" textWrap="true"/>
@@ -61,6 +61,6 @@
 					</StackLayout>
 				</StackLayout>
 			</StackLayout>
-		</StackLayout>
+		</GridLayout>
 	</ScrollView>
 </Page>

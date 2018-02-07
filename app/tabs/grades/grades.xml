@@ -34,69 +34,68 @@
 			</StackLayout>
 		</ScrollView>
 		<StackLayout visibility="{{ academic_year ? 'collapsed' : 'visible' }}">
-			<GridLayout columns="*" rows="*">
-				<StackLayout class="layout" col="0" row="0">
-					<GridLayout rows="auto" class="head">
-						<AbsoluteLayout>
-							<Label text="&#xf060;" class="fa font-awesome backIcon" tap="back"/>
-						</AbsoluteLayout>
-						<StackLayout row="0">
-							<Label text="Summary of Grades" class="grade-text" textWrap="true"/>
-						</StackLayout>
-					</GridLayout>
-					<StackLayout>
-                        <Label text="2nd Semester 2018-2019" textWrap="true" class="semester"/>
-                    </StackLayout>
-                    <StackLayout class="info">
-		            	<StackLayout>
-		            		<GridLayout rows="auto,auto" columns="*,*" class="student-info">
-	                            <StackLayout row="0" col="0">
-	                                <Label text="Name:" textWrap="true" style.fontWeight="bold"/>
-	                                <Label class="data" text="Aron" textWrap="true"/>
-	                            </StackLayout>
-	                            <StackLayout row="0" col="1">
-	                                <Label text="Student Number:" textWrap="true" style.fontWeight="bold"/>
-	                                <Label class="data" text="12313" textWrap="true"/>
-	                            </StackLayout>
-	                            <StackLayout row="1" col="0">
-	                                <Label text="Course & Year:" textWrap="true" style.fontWeight="bold"/>
-	                                <Label class="data" text="BS IS" textWrap="true"/>
-	                            </StackLayout>
-	                            <StackLayout row="1" col="1">
-	                                <Label text="Scholarship Status:" textWrap="true" style.fontWeight="bold"/>
-	                                <Label class="data" text="Partial Scholars" textWrap="true"/>
-	                            </StackLayout>
-	                        </GridLayout>
-		            	</StackLayout>
-		            	<StackLayout>
-		            		<GridLayout columns="auto,*" rows="auto" class="genAve">
-		            			<Label text="General Average:" class="upCase" textWrap="true" row="0" col="0" style.fontWeight="bold"/>
-		            			<Label text="1.50" class="data" textWrap="true" row="0" col="1"/>
-	            			</GridLayout>
+			<!-- <ScrollView> -->
+				<GridLayout columns="*" rows="*">
+					<StackLayout class="layout" col="0" row="0">
+						<GridLayout rows="auto" class="head">
+							<StackLayout row="0">
+								<Label text="Summary of Grades" class="grade-text" textWrap="true"/>
+							</StackLayout>
+						</GridLayout>
+						<StackLayout>
+	                        <Label text="2nd Semester 2018-2019" textWrap="true" class="semester"/>
 	                    </StackLayout>
-	                </StackLayout>
-	                <StackLayout class="table">
-		            		<GridLayout columns="*,75,75" rows="auto" class="table-field">
-		            			<Label text="Course" class="field" textWrap="true" row="0" col="0"/>
-		            			<Label text="Midterm" class="field" textWrap="true" row="0" col="1"/>
-		            			<Label text="Finals" class="field" textWrap="true"  row="0" col="2"/>
-	            			</GridLayout>
-	            		<GridLayout>
-	            			<ListView class="listview" id="grades">
-	                            <ListView.itemTemplate>
-                                    <StackLayout class="table-data">
-                                        <GridLayout rows="*" columns="*,75,75">
-                                            <Label class="data-info" text="{{ subjectTitle }}" textWrap="true" row="0" col="0"/>
-                                            <Label class="data-info term" text="{{ midterm }}" textWrap="true" row="0" col="1"/>
-                                            <Label class="data-info term" text="{{ finals }}" textWrap="true" row="0" col="2"/>
-                                        </GridLayout>
-	                                </StackLayout>
-	                            </ListView.itemTemplate>
-	                        </ListView>
-	            		</GridLayout>
-	            	</StackLayout>
-				</StackLayout>
-			</GridLayout>
+	                    <StackLayout class="info">
+			            	<StackLayout>
+			            		<GridLayout rows="auto,auto" columns="*,*" class="student-info">
+		                            <StackLayout row="0" col="0">
+		                                <Label text="Name:" textWrap="true" style.fontWeight="bold"/>
+		                                <Label class="data" text="Aron" textWrap="true"/>
+		                            </StackLayout>
+		                            <StackLayout row="0" col="1">
+		                                <Label text="Student Number:" textWrap="true" style.fontWeight="bold"/>
+		                                <Label class="data" text="12313" textWrap="true"/>
+		                            </StackLayout>
+		                            <StackLayout row="1" col="0">
+		                                <Label text="Course & Year:" textWrap="true" style.fontWeight="bold"/>
+		                                <Label class="data" text="BS IS" textWrap="true"/>
+		                            </StackLayout>
+		                            <StackLayout row="1" col="1">
+		                                <Label text="Scholarship Status:" textWrap="true" style.fontWeight="bold"/>
+		                                <Label class="data" text="Partial Scholars" textWrap="true"/>
+		                            </StackLayout>
+		                        </GridLayout>
+			            	</StackLayout>
+			            	<StackLayout>
+			            		<GridLayout columns="auto,*" rows="auto" class="genAve">
+			            			<Label text="General Average:" class="upCase" textWrap="true" row="0" col="0" style.fontWeight="bold"/>
+			            			<Label text="1.50" class="data" textWrap="true" row="0" col="1"/>
+		            			</GridLayout>
+		                    </StackLayout>
+		                </StackLayout>
+		                <StackLayout class="table">
+			            		<GridLayout columns="*,75,75" rows="auto" class="table-field">
+			            			<Label text="Course" class="field" textWrap="true" row="0" col="0"/>
+			            			<Label text="Midterm" class="field" textWrap="true" row="0" col="1"/>
+			            			<Label text="Finals" class="field" textWrap="true"  row="0" col="2"/>
+		            			</GridLayout>
+		            		<GridLayout>
+		            			<ListView class="listview" id="grades">
+		                            <ListView.itemTemplate>
+	                                    <StackLayout class="table-data">
+	                                        <GridLayout rows="*" columns="*,75,75">
+	                                            <Label class="data-info" text="{{ subjectTitle }}" textWrap="true" row="0" col="0"/>
+	                                            <Label class="data-info term" text="{{ midterm }}" textWrap="true" row="0" col="1"/>
+	                                            <Label class="data-info term" text="{{ finals }}" textWrap="true" row="0" col="2"/>
+	                                        </GridLayout>
+		                                </StackLayout>
+		                            </ListView.itemTemplate>
+		                        </ListView>
+		            		</GridLayout>
+		            	</StackLayout>
+					</StackLayout>
+				</GridLayout>
+			<!-- </ScrollView> -->
 		</StackLayout>
 	</GridLayout>
 </Page>

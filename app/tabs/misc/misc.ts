@@ -1,83 +1,65 @@
-// import {topmost} from "ui/frame";
-// import {Http} from "../../services/http";
-// import {Page} from "ui/page";
-// import {Observable, EventData} from "data/observable";
-// import observableModule = require("data/observable");
-// import ObservableArray = require("data/observable-array");
-// import {Storage} from "../../services/storage";
-// import dialogs  = require("ui/dialogs");
-// import {LoadingIndicator} from "nativescript-loading-indicator";
-// import { SelectedIndexChangedEventData } from "nativescript-drop-down";
-// import { ValueList } from "nativescript-drop-down";
-// let config = require("../../shared/config");
-// let view = require("ui/core/view");
+import {topmost} from "ui/frame";
+import {Http} from "../../services/http";
+import {Page} from "ui/page";
+import {Observable, EventData} from "data/observable";
+import observableModule = require("data/observable");
+import ObservableArray = require("data/observable-array");
+import {Storage} from "../../services/storage";
+import dialogs  = require("ui/dialogs");
+import {LoadingIndicator} from "nativescript-loading-indicator";
+import { SelectedIndexChangedEventData } from "nativescript-drop-down";
+import { ValueList } from "nativescript-drop-down";
+let config = require("../../shared/config");
+let view = require("ui/core/view");
 
-// let drawer;
-// let page;
+let drawer;
+let page;
 
-// const httpService = new Http;
-// const storageService = new Storage;
-// let paymentList = new ObservableArray.ObservableArray([]);
-// let studentData = storageService.get('student');
-// let academic_year = true;
-// let academicYearList =  new ValueList;
-// let loader = new LoadingIndicator();
-// let pageObservable = new Observable();
-// let errors = new ObservableArray.ObservableArray([]);
-// //SideDrawer
-// export function pageLoaded(args: EventData) {
-//     page = <Page>args.object;
-//     loader.show({
-//       message: 'Please wait....',
-//         progress: 0.65,
-//         android: {
-//           indeterminate: true,
-//           cancelable: true,
-//           max: 100,
-//         },
-//     });
-//     requestAcademicYears();
-//     pageObservable.set('academic_year', academic_year);
-//     pageObservable.set('student', studentData);
-//     drawer = view.getViewById(page, "sideDrawer");
-//     page.bindingContext = pageObservable;
-// };
-
-// exports.toggleDrawer = function() {
-//     drawer.toggleDrawerState();
-// };
-
-// exports.home = function() {
-// 	topmost().navigate("views/home/home");
-// }
-
-// exports.editProfile = function() {
-//     topmost().navigate("views/profile/profile");
-// }
-
-// export function logout() {
-// 	storageService.destroy('student');
-// 	topmost().navigate("views/login/login");
-// }
+const httpService = new Http;
+const storageService = new Storage;
+let paymentList = new ObservableArray.ObservableArray([]);
+let studentData = storageService.get('student');
+let academic_year = true;
+let academicYearList =  new ValueList;
+let loader = new LoadingIndicator();
+let pageObservable = new Observable();
+let errors = new ObservableArray.ObservableArray([]);
+//SideDrawer
+export function pageLoaded(args: EventData) {
+    page = <Page>args.object;
+    loader.show({
+      message: 'Please wait....',
+        progress: 0.65,
+        android: {
+          indeterminate: true,
+          cancelable: true,
+          max: 100,
+        },
+    });
+    // requestAcademicYears();
+    pageObservable.set('academic_year', academic_year);
+    page.bindingContext = pageObservable;
+};
 
 
-// export function submitAcademicYear(args: SelectedIndexChangedEventData) {
-//     // Get selected item
-//     let selectedItem = pageObservable.get('selectedIndex');
-//     let selectedValue = academicYearList.getValue(selectedItem);
-//     loader.show({
-//       message: 'Please wait....',
-//         progress: 0.65,
-//         android: {
-//           indeterminate: true,
-//           cancelable: true,
-//           max: 100,
-//         },
-//     });
-//     let semester = academicYearList.getItem(selectedItem);
-//     pageObservable.set('semester', semester.display);
-//     requestStudentPayments(selectedValue);
-// }
+export function submitAcademicYear(args: SelectedIndexChangedEventData) {
+    // Get selected item
+    // let selectedItem = pageObservable.get('selectedIndex');
+    // let selectedValue = academicYearList.getValue(selectedItem);
+    // loader.show({
+    //   message: 'Please wait....',
+    //     progress: 0.65,
+    //     android: {
+    //       indeterminate: true,
+    //       cancelable: true,
+    //       max: 100,
+    //     },
+    // });
+    // let semester = academicYearList.getItem(selectedItem);
+    // pageObservable.set('semester', semester.display);
+    // requestStudentPayments(selectedValue);
+    pageObservable.set('academic_year', false);
+}
 
 // function requestAcademicYears() {
 //     httpService.get({uri: `/students/${studentData.student_id}/semesters`}, (response) => {
