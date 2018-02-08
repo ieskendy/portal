@@ -40,6 +40,13 @@ export function pageLoaded(args: EventData) {
     page.bindingContext = pageObservable;
 };
 
+export function changeAcademicYear () {
+	pageObservable.set('academic_year', true);
+}
+
+export function goBack() {
+	topmost().goBack();
+}
 
 export function submitAcademicYear(args: SelectedIndexChangedEventData) {
     // Get selected item

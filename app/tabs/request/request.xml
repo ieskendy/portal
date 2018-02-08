@@ -11,85 +11,84 @@
 			</StackLayout>
 		</ActionBar>
 	</page.ActionBar>
-	<ScrollView>
-		<GridLayout rows="*" columns="*">
-			<StackLayout row="0" col="0" class="layout">
-				<!-- Request Form -->
-				<StackLayout class="request-form" visibility="{{ isEditing ? 'visible' : 'collapsed' }}">
-					<StackLayout>
-	        			<StackLayout>
-		            		<Label text="Request Form" class="head-title" textWrap="true"/>
-		            	</StackLayout>
-	        			<StackLayout class="error-message" visibility="{{ errors ? 'visible' : 'collapsed' }}">
-							<ListView id="errors" class="list-group">
-	                            <ListView.itemTemplate>
-	                                <StackLayout class="error-container">
-										<Label class="message" text="{{ title }}" />
-									</StackLayout>
-	                            </ListView.itemTemplate>
-	                        </ListView>
-						</StackLayout>
-	        			<StackLayout class="textField-con">
-	        				<StackLayout>
-		            			<Label text="Document Type:" class="textField-name" textWrap="true"/>
-	        				</StackLayout>
-	                        <StackLayout class="dropdown">
-	                            <dd:DropDown 
-	                            			items="{{ documents }}" 
-	                            			selectedIndex="{{ selectedIndex }}"
-		                                    opened="dropDownOpened" 
-		                                    closed="dropDownClosed"
-		                                    selectedIndexChanged="dropDownSelectedIndexChanged"/>
-	                        </StackLayout>
-	            			<StackLayout>
-	            				<Label text="Purpose:" class="textField-name" style.paddingBottom="10" textWrap="true"/>
-	            			</StackLayout>
-	            			<StackLayout >
-			            		<TextField text="{{ purpose }}" class="purpose" textWrap="true"/>
-	            			</StackLayout>
-		            		<StackLayout>
-		            			<Button text="Submit | &#xf1d9;" class="fa font-awesome button" tap="submitRequest"/>
-		            		</StackLayout>
-	                    </StackLayout>
+	<GridLayout rows="*" columns="*">
+		<ScrollView>
+			<StackLayout col="0" row="0" class="layout" visibility="{{ isEditing ? 'visible' : 'collapsed' }}">
+				<StackLayout>
+        			<StackLayout>
+	            		<Label text="Request Form" class="head-title" textWrap="true"/>
+	            	</StackLayout>
+        			<StackLayout class="error-message" visibility="{{ errors ? 'visible' : 'collapsed' }}">
+						<ListView id="errors" class="list-group">
+                            <ListView.itemTemplate>
+                                <StackLayout class="error-container">
+									<Label class="message" text="{{ title }}" />
+								</StackLayout>
+                            </ListView.itemTemplate>
+                        </ListView>
 					</StackLayout>
-				</StackLayout>
-				<StackLayout  visibility="{{ isEditing ? 'collapsed' : 'visible' }}">
-					<GridLayout rows="*,*" class="head">
-						<AbsoluteLayout row="0">
-							<StackLayout tap="showForm">
-								<Label text="&#xf067;" class="fa font-awesome createRequest"/>
-							</StackLayout>
-						</AbsoluteLayout>
-						<StackLayout row="0">
-							<Label text="Request History" class="request-text" textWrap="true"/>
-						</StackLayout>
-					</GridLayout>
-					<GridLayout columns="*" rows="*">
-						<StackLayout class="table" row="0" col="0">
-							<StackLayout>
-								<GridLayout columns="*,*,*" rows="auto" class="table-field">
-									<Label text="Document" class="field" textWrap="true" row="0" col="0"/>
-									<Label text="Date Requested" class="field" textWrap="true" row="0" col="1"/>
-									<Label text="Date Released" class="field" textWrap="true"  row="0" col="2"/>
-								</GridLayout>
-							</StackLayout>
-						</StackLayout>
-					</GridLayout>
-					<GridLayout rows="*">
-						<ListView row="0" id="requestedDocuments" class="list-group listview"> 
-	                        <ListView.itemTemplate>
-	                            <StackLayout width="100%" class="table-data">
-	                                <GridLayout rows="auto" columns="*,*,*">
-	                                    <Label class="data-info" text="{{ document }}" textWrap="true" row="0" col="0"/>
-	                                    <Label class="data-info term ctr" text="{{ requested_at }}" textWrap="true" row="0" col="1"/>
-	                                    <Label class="data-info term ctr" text="{{ released_at }}" textWrap="true" row="0" col="2"/>
-	                                </GridLayout>
-	                            </StackLayout>
-	                        </ListView.itemTemplate>
-	                    </ListView>
-					</GridLayout>
+        			<StackLayout class="textField-con">
+        				<StackLayout>
+	            			<Label text="Document Type:" class="textField-name" textWrap="true"/>
+        				</StackLayout>
+                        <StackLayout class="dropdown">
+                            <dd:DropDown 
+                            			items="{{ documents }}" 
+                            			selectedIndex="{{ selectedIndex }}"
+	                                    opened="dropDownOpened" 
+	                                    closed="dropDownClosed"
+	                                    selectedIndexChanged="dropDownSelectedIndexChanged"/>
+                        </StackLayout>
+            			<StackLayout>
+            				<Label text="Purpose:" class="textField-name" style.paddingBottom="10" textWrap="true"/>
+            			</StackLayout>
+            			<StackLayout >
+		            		<TextField text="{{ purpose }}" class="purpose" textWrap="true"/>
+            			</StackLayout>
+	            		<StackLayout>
+	            			<Button text="Submit | &#xf1d9;" class="fa font-awesome button" tap="submitRequest"/>
+	            		</StackLayout>
+                    </StackLayout>
 				</StackLayout>
 			</StackLayout>
-		</GridLayout>
-	</ScrollView>
+		</ScrollView>
+		<ScrollView>
+			<StackLayout  col="0" row="0" class="layout" visibility="{{ isEditing ? 'collapsed' : 'visible' }}">
+				<GridLayout rows="*" class="head">
+					<AbsoluteLayout row="0">
+						<StackLayout tap="showForm">
+							<Label text="&#xf067;" class="fa font-awesome createRequest"/>
+						</StackLayout>
+					</AbsoluteLayout>
+					<StackLayout row="0">
+						<Label text="Request History" class="request-text" textWrap="true"/>
+					</StackLayout>
+				</GridLayout>
+				<GridLayout columns="*" rows="*">
+					<StackLayout class="table" row="0" col="0">
+						<StackLayout>
+							<GridLayout columns="*,*,*" rows="auto" class="table-field">
+								<Label text="Document" class="field" textWrap="true" row="0" col="0"/>
+								<Label text="Date Requested" class="field" textWrap="true" row="0" col="1"/>
+								<Label text="Date Released" class="field" textWrap="true"  row="0" col="2"/>
+							</GridLayout>
+						</StackLayout>
+					</StackLayout>
+				</GridLayout>
+				<GridLayout rows="*">
+					<Repeater row="0" id="requestedDocuments" class="list-group listview"> 
+			            <Repeater.itemTemplate>
+			                <StackLayout width="100%" class="table-data">
+			                    <GridLayout rows="auto" columns="*,*,*">
+			                        <Label class="data-info" text="{{ document }}" textWrap="true" row="0" col="0"/>
+			                        <Label class="data-info term ctr" text="{{ requested_at }}" textWrap="true" row="0" col="1"/>
+			                        <Label class="data-info term ctr" text="{{ released_at }}" textWrap="true" row="0" col="2"/>
+			                    </GridLayout>
+			                </StackLayout>
+			            </Repeater.itemTemplate>
+			        </Repeater>
+				</GridLayout>
+			</StackLayout>
+		</ScrollView>
+	</GridLayout>
 </Page>

@@ -24,5 +24,9 @@
 
 //Action bar
 ActionBar .action-bar-title {
-    horizontal-align: center;
+    font-family: abel-regular;
+    text-transform: uppercase;
+    letter-spacing: .1;
+    font-size: 15;
+    font-weight: bold;
 }

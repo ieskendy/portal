@@ -37,6 +37,7 @@ export function pageLoaded(args: EventData) {
         },
     });
     // requestAcademicYears();
+    load();
     pageObservable.set('academic_year', academic_year);
     page.bindingContext = pageObservable;
 };
@@ -140,6 +141,29 @@ export function submitAcademicYear(args: SelectedIndexChangedEventData) {
 //     listview.items = paymentList;
 //     loader.hide();
 // }
+
+function load() {
+    paymentList.push(
+        {
+            particular: "Registration fee",
+            amount_paid: "220" 
+        },
+        {
+            particular: "Registration fee",
+            amount_paid: "220" 
+        },
+        {
+            particular: "Registration fee",
+            amount_paid: "220" 
+        },
+        {
+            particular: "Registration fee",
+            amount_paid: "220" 
+        },
+    );
+      var listview = view.getViewById(page, "payments");
+     listview.items = paymentList;
+}
 
 // function getTotalAmountPaid(payments) {
 // 	let total = 0;

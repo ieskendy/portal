@@ -40,6 +40,8 @@ exports.pageLoaded = function(args: EventData) {
     // fetchStudentRequest();
     // pageObservable.set('student', studentData);
     // drawer = view.getViewById(page, "sideDrawer");
+    pageObservable.set('purpose', 'asdasdasdadasdas');
+    load();
     pageObservable.set('isEditing', isEditing);
     page.bindingContext = pageObservable;
 };
@@ -62,43 +64,43 @@ export function showForm() {
     pageObservable.set('isEditing', true);
 }
 
-// export function submitRequest() {
-//     loader.show({
-//         message: 'Please wait....',
-//           progress: 0.65,
-//           android: {
-//               indeterminate: true,
-//             cancelable: true,
-//             max: 100,
-//           },
-//     });
-//     let selectedItem = pageObservable.get('selectedIndex');
-//     let selectedValue = documentList.getValue(selectedItem);
-//     let data = {
-//         'purpose': pageObservable.get('purpose'),
-//         'student_id': studentData.student_id,
-//         'document_id': selectedValue
-//     };
-//     console.log(JSON.stringify(data));
-//     if(!data.document_id) {
-//         errors.push({
-//             "title": "Document type field is required!"
-//         });
-//         loader.hide();
-//     }
-//     if(!data.purpose) {
-//         errors.push({
-//             "title": "Purpose field is required"
-//         });
-//         loader.hide();
-//     }
+export function submitRequest() {
+    // loader.show({
+    //     message: 'Please wait....',
+    //       progress: 0.65,
+    //       android: {
+    //           indeterminate: true,
+    //         cancelable: true,
+    //         max: 100,
+    //       },
+    // });
+    // let selectedItem = pageObservable.get('selectedIndex');
+    // let selectedValue = documentList.getValue(selectedItem);
+    let data = {
+        'purpose': pageObservable.get('purpose'),
+        'student_id': studentData.student_id,
+        'document_id': "asdasdas"
+    };
+    console.log(JSON.stringify(data));
+    if(!data.document_id) {
+        errors.push({
+            "title": "Document type field is required!"
+        });
+        loader.hide();
+    }
+    if(!data.purpose) {
+        errors.push({
+            "title": "Purpose field is required"
+        });
+        loader.hide();
+    }
 
-//     if(data.document_id && data.purpose) {
-//         saveNewRequest(data);
-//     }
+    // if(data.document_id && data.purpose) {
+    //     saveNewRequest(data);
+    // }
 
-//     showErrors();
-// }
+    showErrors();
+}
 
 // function requestDocuments() {
 //     httpService.get({uri: `/documents`}, (response) => {
@@ -183,23 +185,66 @@ export function showForm() {
 //         });
 //     });
 
-//     let listview = view.getViewById(page, "requestedDocuments");
-//     listview.items = requestedDocumentsList;
+    // let listview = view.getViewById(page, "requestedDocuments");
+    // listview.items = requestedDocumentsList;
 // }
 
-// function showErrors() {
-//     if(errors.length > 0) {
-//         pageObservable.set('errors', errors);
-//         let listview = view.getViewById(page, "errors");
-//         listview.items = errors;
-//         setTimeout(()=> {
-//             while(errors.length) {
-//                 errors.pop();
-//             }
-//             pageObservable.set('errors',null);
-//         }, 4000);
-//     }
-// }
+function load() {
+    requestedDocumentsList.push(
+        {
+            id: "123",
+            document: "TOR",
+            requested_at: "November 25, 1997",
+            released_at: " - "
+        },
+        {
+            id: "123",
+            document: "TOR",
+            requested_at: "November 25, 1997",
+            released_at: " - "
+        },
+        {
+            id: "123",
+            document: "TOR",
+            requested_at: "November 25, 1997",
+            released_at: " - "
+        },
+        {
+            id: "123",
+            document: "TOR",
+            requested_at: "November 25, 1997",
+            released_at: " - "
+        },
+        {
+            id: "123",
+            document: "TOR",
+            requested_at: "November 25, 1997",
+            released_at: " - "
+        },
+        {
+            id: "123",
+            document: "TOR",
+            requested_at: "November 25, 1997",
+            released_at: " - "
+        },
+    );
+        let listview = view.getViewById(page, "requestedDocuments");
+        listview.items = requestedDocumentsList;
+}
+
+function showErrors() {
+    if(errors.length > 0) {
+        pageObservable.set('errors', errors);
+        let listview = view.getViewById(page, "errors");
+        listview.items = errors;
+        setTimeout(()=> {
+            while(errors.length) {
+                errors.pop();
+            }
+            pageObservable.set('errors',null);
+        }, 4000);
+    }
+}
 
 // function loadDocuments(documents: any) {
 //     documents.data.forEach((document) => {

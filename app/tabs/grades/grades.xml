@@ -6,9 +6,15 @@
 	<page.ActionBar>
 		<ActionBar class="action-bar">
 			<NavigationButton android.systemIcon="ic_menu_back" tap="goBack"/>
-			<StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left">
-				<Label class="project-title" text="LVCC | Grades" textWrap="true"/>
-			</StackLayout>
+			<GridLayout colums="*, auto" row="*">
+				<Label class="project-title" row="0" text="LVCC | Grades" textWrap="true" col="0" orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left"/>
+				<Label col="1" class="nav-button-change" text="Semesters" row="0" orientation="horizontal"  
+					ios:horizontalAlignment="right" 
+					android:horizontalAlignment="right" 
+					visibility="{{ academic_year ? 'collapsed' : 'visible' }}"
+					tap="changeAcademicYear"/>
+			</GridLayout>
+
 		</ActionBar>
 	</page.ActionBar>
 	<GridLayout columns="*" rows="*">
@@ -34,7 +40,7 @@
 			</StackLayout>
 		</ScrollView>
 		<StackLayout visibility="{{ academic_year ? 'collapsed' : 'visible' }}">
-			<!-- <ScrollView> -->
+			<ScrollView>
 				<GridLayout columns="*" rows="*">
 					<StackLayout class="layout" col="0" row="0">
 						<GridLayout rows="auto" class="head">
@@ -80,8 +86,8 @@
 			            			<Label text="Finals" class="field" textWrap="true"  row="0" col="2"/>
 		            			</GridLayout>
 		            		<GridLayout>
-		            			<ListView class="listview" id="grades">
-		                            <ListView.itemTemplate>
+		            			<Repeater class="listview" id="grades">
+		                            <Repeater.itemTemplate>
 	                                    <StackLayout class="table-data">
 	                                        <GridLayout rows="*" columns="*,75,75">
 	                                            <Label class="data-info" text="{{ subjectTitle }}" textWrap="true" row="0" col="0"/>
@@ -89,13 +95,13 @@
 	                                            <Label class="data-info term" text="{{ finals }}" textWrap="true" row="0" col="2"/>
 	                                        </GridLayout>
 		                                </StackLayout>
-		                            </ListView.itemTemplate>
-		                        </ListView>
+		                            </Repeater.itemTemplate>
+		                        </Repeater>
 		            		</GridLayout>
 		            	</StackLayout>
 					</StackLayout>
 				</GridLayout>
-			<!-- </ScrollView> -->
+			</ScrollView>
 		</StackLayout>
 	</GridLayout>
 </Page>

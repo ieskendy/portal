@@ -105,7 +105,7 @@ Feel free to customize layouts and components to change how the tab view looks.
     </StackLayout>
     <StackLayout row="0" col="1" class="navigation-button misc" tap="fees">
       <Label text="&#xf0d6;" class="fa font-awesome home-icon" />
-                    <Label text="Miscellaneous fee" textWrap="true" class="nav-title" />
+      <Label text="Student Ledger" textWrap="true" class="nav-title" />
     </StackLayout>
   </GridLayout>
     </StackLayout>

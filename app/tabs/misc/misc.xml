@@ -5,10 +5,15 @@
 	>
 	<page.ActionBar>
 		<ActionBar class="action-bar">
-			<NavigationButton android.systemIcon="ic_menu_back" tap="home"/>
-			<StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left">
-				<Label class="project-title" text="LVCC | Miscellaneous" textWrap="true"/>
-			</StackLayout>
+			<NavigationButton android.systemIcon="ic_menu_back" tap="goBack"/>
+			<GridLayout colums="*, auto" row="*">
+				<Label class="project-title" row="0" text="LVCC | Student Ledger" textWrap="true" col="0" orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left"/>
+				<Label col="1" class="nav-button-change" text="Semesters" row="0" orientation="horizontal"  
+					ios:horizontalAlignment="right" 
+					android:horizontalAlignment="right" 
+					visibility="{{ academic_year ? 'collapsed' : 'visible' }}"
+					tap="changeAcademicYear"/>
+			</GridLayout>
 		</ActionBar>
 	</page.ActionBar>
 	<GridLayout rows="*" columns="*">
@@ -48,11 +53,11 @@
 							<StackLayout>
 								<GridLayout rows="*,*" columns="auto, *" class="head">
 									<StackLayout row="0" col="1">
-										<Label text="Payments information" class="payment-text" textWrap="true"/>
+										<Label text="Student Ledger" class="payment-text" textWrap="true"/>
 									</StackLayout>
 								</GridLayout>
 								<StackLayout >
-			                        <Label text="{{ semester }}" textWrap="true" class="semester"/>
+			                        <Label text="2nd Semester" textWrap="true" class="semester"/>
 			                    </StackLayout>
 							</StackLayout>
 							<StackLayout class="info">
@@ -60,19 +65,19 @@
 				            		<GridLayout rows="auto,auto" columns="*,*" class="student-info">
 			                            <StackLayout row="0" col="0">
 			                                <Label text="Name:" textWrap="true" style.fontWeight="bold"/>
-			                                <Label class="data" text="{{ student.student_name }}" textWrap="true"/>
+			                                <Label class="data" text="Janet" textWrap="true"/>
 			                            </StackLayout>
 			                            <StackLayout row="0" col="1">
 			                                <Label text="Student Number:" textWrap="true" style.fontWeight="bold"/>
-			                                <Label class="data" text="{{ student.student_number }}" textWrap="true"/>
+			                                <Label class="data" text="dasdasdasdsd" textWrap="true"/>
 			                            </StackLayout>
 			                            <StackLayout row="1" col="0">
 			                                <Label text="Course & Year:" textWrap="true" style.fontWeight="bold"/>
-			                                <Label class="data" text="{{student.program_title}}" textWrap="true"/>
+			                                <Label class="data" text="BSA" textWrap="true"/>
 			                            </StackLayout>
 			                            <StackLayout row="1" col="1">
 			                                <Label text="Scholarship Status:" textWrap="true" style.fontWeight="bold"/>
-			                                <Label class="data" text="{{ student.scholarship_status }}" textWrap="true"/>
+			                                <Label class="data" text="Partial" textWrap="true"/>
 			                            </StackLayout>
 			                        </GridLayout>
 				            	</StackLayout>
@@ -87,16 +92,16 @@
 			            		</StackLayout>
 			                </StackLayout>
 			                <GridLayout rows="*">
-			        			<ListView row="0" id="payments" class="listview"> 
-			                        <ListView.itemTemplate>
+			        			<Repeater row="0" id="payments" class="listview"> 
+			                        <Repeater.itemTemplate>
 			                            <StackLayout class="table-data">
 			                                <GridLayout rows="auto" columns="*,*">
 			                                    <Label class="data-info" text="{{ particular }}" textWrap="true" row="0" col="0" style.fontWeight="bold"/>
 			                                    <Label class="data-info ctr" text="{{ amount_paid }}" textWrap="true" row="0" col="1"/>
 			                                </GridLayout>
 			                            </StackLayout>
-			                        </ListView.itemTemplate>
-			                    </ListView>
+			                        </Repeater.itemTemplate>
+			                    </Repeater>
 			        		</GridLayout>
 			        		<StackLayout class="table-data">
 			                    <GridLayout rows="auto" columns="*,*">
