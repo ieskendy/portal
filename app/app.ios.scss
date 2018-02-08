@@ -3,12 +3,12 @@
 
 // Import the theme’s main ruleset - both index and platform specific.
 @import '~nativescript-theme-core/scss/index';
-@import '~nativescript-theme-core/scss/platforms/index.ios';
+@import '~nativescript-theme-core/scss/platforms/index.android';
 
 // Import common styles
 @import 'app-common';
 
-// Place any CSS rules you want to apply only on iOS here
+// Place any CSS rules you want to apply only on Android here
 /*@import 'nativescript-theme-core/css/core.light.css';*/
 @import '~/nativescript-theme-core/css/sky.css';
 .page {
@@ -21,16 +21,12 @@
 	text-align: center;
 }
 
-.font-awesome {
-	font-family: fontawesome-webfont;
-}
-
 .project-title {
 	font-family: abel-regular;
 	text-transform: uppercase;
-	letter-spacing: .2;
-  	font-size: 15;
-  	font-weight: bold;
+	letter-spacing: .1;
+	font-size: 12;
+	font-weight: bold;
 }
 .button {
 	margin-top: 10;
@@ -72,7 +68,7 @@
 .sidedrawer-buttons{
 	margin-bottom: 5;
 	padding-top: 4;
-	padding-bottom: 3; 
+	padding-bottom: 3;
 	border-top-width: 1;
 	border-color: #fff;
 }
@@ -118,10 +114,10 @@
 	background-color: #fff;
 	margin:50,10,10,10;
 	border-radius: 15;
-	min-height: 400;
+	min-height: 200;
 }
 .drop-down {
-	margin-top: 15; 
+	margin-top: 15;
 	padding: 5;
 	width: 80%;
 	border-width: 1;

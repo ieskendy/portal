@@ -6,6 +6,8 @@
 	<page.ActionBar>
 		<ActionBar class="action-bar">
 			<NavigationButton android.systemIcon="ic_menu_back" tap="goBack"/>
+			<ActionItem tap="showForm" ios.systemIcon="4" android.systemIcon="ic_menu_add" ios.position="right"
+		visibility="{{ isEditing ? 'collapsed' : 'visible' }}"/>
 			<StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left">
 				<Label class="project-title" text="LVCC | Document Requests" textWrap="true"/>
 			</StackLayout>
@@ -32,10 +34,10 @@
 	            			<Label text="Document Type:" class="textField-name" textWrap="true"/>
         				</StackLayout>
                         <StackLayout class="dropdown">
-                            <dd:DropDown 
-                            			items="{{ documents }}" 
+                            <dd:DropDown
+                            			items="{{ documents }}"
                             			selectedIndex="{{ selectedIndex }}"
-	                                    opened="dropDownOpened" 
+	                                    opened="dropDownOpened"
 	                                    closed="dropDownClosed"
 	                                    selectedIndexChanged="dropDownSelectedIndexChanged"/>
                         </StackLayout>
@@ -55,11 +57,6 @@
 		<ScrollView>
 			<StackLayout  col="0" row="0" class="layout" visibility="{{ isEditing ? 'collapsed' : 'visible' }}">
 				<GridLayout rows="*" class="head">
-					<AbsoluteLayout row="0">
-						<StackLayout tap="showForm">
-							<Label text="&#xf067;" class="fa font-awesome createRequest"/>
-						</StackLayout>
-					</AbsoluteLayout>
 					<StackLayout row="0">
 						<Label text="Request History" class="request-text" textWrap="true"/>
 					</StackLayout>
@@ -76,7 +73,7 @@
 					</StackLayout>
 				</GridLayout>
 				<GridLayout rows="*">
-					<Repeater row="0" id="requestedDocuments" class="list-group listview"> 
+					<Repeater row="0" id="requestedDocuments" class="list-group listview">
 			            <Repeater.itemTemplate>
 			                <StackLayout width="100%" class="table-data">
 			                    <GridLayout rows="auto" columns="*,*,*">

@@ -68,6 +68,10 @@ export function viewSchedule() {
  pageObservable.set('schedule_form',false);
 }
 
+export function onChange() {
+  console.log('back');
+  pageObservable.set('schedule_form', true);
+}
 
 function loadDays() {
 	if(days.length == 0) {

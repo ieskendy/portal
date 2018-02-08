@@ -7,6 +7,9 @@
     "id": "org.nativescript.lvccsp",
     "tns-android": {
       "version": "3.3.1"
+    },
+    "tns-ios": {
+      "version": "3.4.1"
     }
   },
   "scripts": {

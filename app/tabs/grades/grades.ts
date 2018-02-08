@@ -17,7 +17,7 @@ let pageObservable = new Observable();
 let storageService = new Storage;
 let httpService = new Http;
 let gradesList = new ObservableArray.ObservableArray([]);
-let loader = new LoadingIndicator();	
+let loader = new LoadingIndicator();
 let academicYearList =  new ValueList;
 let studentData = storageService.get('student');
 let academic_year = true;
@@ -40,9 +40,10 @@ export function pageLoaded(args: EventData) {
     page.bindingContext = pageObservable;
 };
 
-export function changeAcademicYear () {
+export function onChange () {
 	pageObservable.set('academic_year', true);
 }
+
 
 export function goBack() {
 	topmost().goBack();

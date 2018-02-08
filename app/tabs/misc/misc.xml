@@ -6,13 +6,10 @@
 	<page.ActionBar>
 		<ActionBar class="action-bar">
 			<NavigationButton android.systemIcon="ic_menu_back" tap="goBack"/>
+			<ActionItem tap="onChange" ios.systemIcon="12" android.systemIcon="ic_menu_search" ios.position="right"
+		visibility="{{ academic_year ? 'collapsed' : 'visible' }}"/>
 			<GridLayout colums="*, auto" row="*">
 				<Label class="project-title" row="0" text="LVCC | Student Ledger" textWrap="true" col="0" orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left"/>
-				<Label col="1" class="nav-button-change" text="Semesters" row="0" orientation="horizontal"  
-					ios:horizontalAlignment="right" 
-					android:horizontalAlignment="right" 
-					visibility="{{ academic_year ? 'collapsed' : 'visible' }}"
-					tap="changeAcademicYear"/>
 			</GridLayout>
 		</ActionBar>
 	</page.ActionBar>
@@ -38,7 +35,7 @@
 	                            />
 	                        </StackLayout>
 	                     	<StackLayout class="buttons">
-	                            <Button tap="submitAcademicYear" text="Submit" class="font-awesome dd-button"/>
+	                            <Button tap="submitAcademicYear" text="Submit" class="font-awesome fa dd-button"/>
 	                        </StackLayout>
 	                    </StackLayout>
 	                </StackLayout>
@@ -92,7 +89,7 @@
 			            		</StackLayout>
 			                </StackLayout>
 			                <GridLayout rows="*">
-			        			<Repeater row="0" id="payments" class="listview"> 
+			        			<Repeater row="0" id="payments" class="listview">
 			                        <Repeater.itemTemplate>
 			                            <StackLayout class="table-data">
 			                                <GridLayout rows="auto" columns="*,*">

@@ -8,8 +8,10 @@
 	<page.ActionBar>
 		<ActionBar class="action-bar">
 			<NavigationButton tap="goBack" android.systemIcon="ic_menu_back" ios.position="right" />
+			<ActionItem tap="onChange" ios.systemIcon="12" android.systemIcon="ic_menu_search" ios.position="right"
+		visibility="{{ schedule_form ? 'collapsed' : 'visible' }}"/>
 			<StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left">
-				<Label class="project-title" text="LVCC | Course & Schedule" textWrap="true"/>
+				<Label class="project-title" text="Schedule" textWrap="true"/>
 			</StackLayout>
 		</ActionBar>
 	</page.ActionBar>
@@ -52,9 +54,6 @@
 			<GridLayout columns="*" rows="*">
 				<StackLayout col="0" row="0" class="layout">
 					<GridLayout rows="auto" class="head">
-						<StackLayout row="0" col="0">
-							<Label text="&#xf060;" class="fa font-awesome backIcon" tap="back"/>
-						</StackLayout>
 						<StackLayout row="0" col="1">
 							<Label text="Monday" class="day-name" textWrap="true"/>
 						</StackLayout>

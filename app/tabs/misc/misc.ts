@@ -27,15 +27,15 @@ let errors = new ObservableArray.ObservableArray([]);
 //SideDrawer
 export function pageLoaded(args: EventData) {
     page = <Page>args.object;
-    loader.show({
-      message: 'Please wait....',
-        progress: 0.65,
-        android: {
-          indeterminate: true,
-          cancelable: true,
-          max: 100,
-        },
-    });
+    // loader.show({
+    //   message: 'Please wait....',
+    //     progress: 0.65,
+    //     android: {
+    //       indeterminate: true,
+    //       cancelable: true,
+    //       max: 100,
+    //     },
+    // });
     // requestAcademicYears();
     load();
     pageObservable.set('academic_year', academic_year);
@@ -60,6 +60,11 @@ export function submitAcademicYear(args: SelectedIndexChangedEventData) {
     // pageObservable.set('semester', semester.display);
     // requestStudentPayments(selectedValue);
     pageObservable.set('academic_year', false);
+}
+
+export function onChange() {
+  console.log('Changing');
+  pageObservable.set('academic_year', true);
 }
 
 // function requestAcademicYears() {
@@ -146,19 +151,19 @@ function load() {
     paymentList.push(
         {
             particular: "Registration fee",
-            amount_paid: "220" 
+            amount_paid: "220"
         },
         {
             particular: "Registration fee",
-            amount_paid: "220" 
+            amount_paid: "220"
         },
         {
             particular: "Registration fee",
-            amount_paid: "220" 
+            amount_paid: "220"
         },
         {
             particular: "Registration fee",
-            amount_paid: "220" 
+            amount_paid: "220"
         },
     );
       var listview = view.getViewById(page, "payments");

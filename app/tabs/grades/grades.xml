@@ -6,13 +6,10 @@
 	<page.ActionBar>
 		<ActionBar class="action-bar">
 			<NavigationButton android.systemIcon="ic_menu_back" tap="goBack"/>
+			<ActionItem tap="onChange" ios.systemIcon="12" android.systemIcon="ic_menu_search" ios.position="right"
+		visibility="{{ academic_year ? 'collapsed' : 'visible' }}"/>
 			<GridLayout colums="*, auto" row="*">
 				<Label class="project-title" row="0" text="LVCC | Grades" textWrap="true" col="0" orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left"/>
-				<Label col="1" class="nav-button-change" text="Semesters" row="0" orientation="horizontal"  
-					ios:horizontalAlignment="right" 
-					android:horizontalAlignment="right" 
-					visibility="{{ academic_year ? 'collapsed' : 'visible' }}"
-					tap="changeAcademicYear"/>
 			</GridLayout>
 
 		</ActionBar>
