@@ -67,7 +67,7 @@ function requestLogin(credentials: {'username': string, 'password': string}) {
 		if (! response.error) {
 			let data = response;
 			storageServices.store('student', data);
-			topmost().navigate("views/home/home");
+			topmost().navigate("tabs/tabs-page");
 			loader.hide();
 		} else {
 			loader.hide();

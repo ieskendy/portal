@@ -1,6 +1,9 @@
 import {topmost} from "ui/frame";
 import { EventData } from "data/observable";
 import { StackLayout } from "ui/layouts/stack-layout";
+import {Storage} from "../../services/storage";
+
+let storageService = new Storage;
 
 export function onLoaded(args: EventData) {
     const component = <StackLayout>args.object;
@@ -23,5 +26,7 @@ export function isChangeUsername() {
 }
 
 export function doLogout() {
-  console.log('Signing out');
+  	console.log('Signing out');
+  	storageService.destroy('student');
+	topmost().navigate("tabs/login/login");
 }

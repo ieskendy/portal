@@ -28,7 +28,7 @@
 		            			<Label text="Section/Block"  class="dd-name"/>
 	            			</StackLayout>
 	                        <StackLayout class="drop-down">
-	                            <dd:DropDown selectedIndex="{{ selectedSection }}"
+	                            <dd:DropDown items="{{ sections }}" selectedIndex="{{ selectedSection }}"
 	                                opened="dropDownOpened" closed="dropDownClosed"
 	                                selectedIndexChanged="dropDownSelectedIndexChanged"
 	                            />
@@ -37,7 +37,7 @@
 	                    		<Label text="Day" class="dd-name"/>
 	        				</StackLayout>
 	                        <StackLayout class="drop-down">
-	                            <dd:DropDown  selectedIndex="{{ selectedDay }}"
+	                            <dd:DropDown items="{{ days }}" selectedIndex="{{ selectedDay }}"
 	                                opened="dropDownOpened" closed="dropDownClosed"
 	                                selectedIndexChanged="dropDownSelectedIndexChanged"
 	                            />

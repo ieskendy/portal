@@ -45,12 +45,12 @@ export class Http {
 
   public get(option: { uri: string, url?: string, auth?: boolean }, cb: Function, noConnection?: Function): void {
     if (this.beforeSend()) {
-
       http.request({
         url: option.url || `${this.baseUrl}${option.uri}`,
         method: 'GET',
         headers: this.getHeaders()
       }).then((response) => {
+        console.log(response.statusCode);
         if (response.statusCode != 404) {
           cb(response.content.toJSON());
         } else {
@@ -74,6 +74,7 @@ export class Http {
         headers: this.getHeaders(),
         content: JSON.stringify(option.data)
       }).then((response) => {
+        console.log(response.statusCode);
         if (response.statusCode != 404) {
           cb(response.content.toJSON());
         } else {

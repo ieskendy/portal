@@ -17,13 +17,13 @@
 				</StackLayout>
 				<StackLayout class="form">
 					<StackLayout  class="error-message" visibility="{{ errors ? 'visible' : 'collapsed' }}">
-						<ListView items="{{ errors }}">
-							<ListView.itemTemplate>
+						<Repeater items="{{ errors }}">
+							<Repeater.itemTemplate>
 								<StackLayout class="error-container">
 									<Label class="message" text="{{ title }}" />
 								</StackLayout>
-							</ListView.itemTemplate>
-						</ListView>
+							</Repeater.itemTemplate>
+						</Repeater>
 					</StackLayout>
 					<StackLayout>
 						<Label text="Sign In" class="signin-text" textWrap="true"/>

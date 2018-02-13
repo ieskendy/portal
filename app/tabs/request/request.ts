@@ -22,214 +22,70 @@ let storageService = new Storage;
 let documentList = new ValueList;
 let requestedDocumentsList = new ObservableArray.ObservableArray([]);
 let errors = new ObservableArray.ObservableArray([]);
-let isEditing = false;
 let studentData = storageService.get('student');
 
 //SideDrawer
 exports.pageLoaded = function(args: EventData) {
     page = <Page>args.object;
-    // loader.show({
-    //     message: 'Please wait....',
-    //       progress: 0.65,
-    //       android: {
-    //           indeterminate: true,
-    //         cancelable: true,
-    //         max: 100,
-    //       },
-    // });
-    // fetchStudentRequest();
-    // pageObservable.set('student', studentData);
-    // drawer = view.getViewById(page, "sideDrawer");
-    pageObservable.set('purpose', 'asdasdasdadasdas');
-    load();
-    pageObservable.set('isEditing', isEditing);
+    loader.show({
+        message: 'Please wait....',
+          progress: 0.65,
+          android: {
+              indeterminate: true,
+            cancelable: true,
+            max: 100,
+          },
+    });
+    fetchStudentRequest();
     page.bindingContext = pageObservable;
 };
 
 export function goBack() {
-    topmost().goBack();
+    topmost().navigate("tabs/tabs-page");
 }
-
-// exports.editProfile = function() {
-//     topmost().navigate("views/profile/profile");
-// }
-
-// export function logout() {
-//     storageService.destroy('student');
-//     topmost().navigate("views/login/login");
-// }
 
 export function showForm() {
-    // requestDocuments();
-    pageObservable.set('isEditing', true);
+    topmost().navigate("tabs/request-form/request-form");
 }
 
-export function submitRequest() {
-    // loader.show({
-    //     message: 'Please wait....',
-    //       progress: 0.65,
-    //       android: {
-    //           indeterminate: true,
-    //         cancelable: true,
-    //         max: 100,
-    //       },
-    // });
-    // let selectedItem = pageObservable.get('selectedIndex');
-    // let selectedValue = documentList.getValue(selectedItem);
-    let data = {
-        'purpose': pageObservable.get('purpose'),
-        'student_id': studentData.student_id,
-        'document_id': "asdasdas"
-    };
-    console.log(JSON.stringify(data));
-    if(!data.document_id) {
-        errors.push({
-            "title": "Document type field is required!"
-        });
-        loader.hide();
-    }
-    if(!data.purpose) {
-        errors.push({
-            "title": "Purpose field is required"
-        });
-        loader.hide();
-    }
 
-    // if(data.document_id && data.purpose) {
-    //     saveNewRequest(data);
-    // }
 
-    showErrors();
+function fetchStudentRequest() {
+    httpService.get({uri: `/students/${studentData.student_id}/documents`}, (response) => {
+        if (response.error) {
+            alert('You dont have request');
+        } else {
+            let requestedDocuments = response;
+            if(requestedDocumentsList.length == 0) {
+                loadRequestedDocument(requestedDocuments);
+                loader.hide();
+            } else {
+                while(requestedDocumentsList.length) {
+                   requestedDocumentsList.pop();
+               }
+               loadRequestedDocument(requestedDocuments);
+               loader.hide();
+            }   
+        }
+    }, () => {
+        alert('Unable to connect. Please check your internet connection!');
+        loader.hide();
+        topmost().navigate("views/home/home");
+    });
 }
 
-// function requestDocuments() {
-//     httpService.get({uri: `/documents`}, (response) => {
-//         console.log(JSON.stringify(response));
-//         if (response.error) {
-//             alert('Something went wrong! Please check your internet connection');
-//             loader.hide();
-//             topmost().navigate("views/home/home");
-//         } else {
-//             let documents = response;
-//             if (documentList.length == 0) {
-//                 loadDocuments(documents);
-//                 loader.hide();
-//             } else {
-//                 while(documentList.length) {
-//                     documentList.pop();
-//                 }
-//                 loadDocuments(documents);
-//                 loader.hide();
-//             }
-//         }
-//     }, () => {
-//         alert('Unable to connect. Please check your internet connection!');
-//         loader.hide();
-//         topmost().navigate("views/home/home");
-//     });
-// }
+function loadRequestedDocument(requestedDocuments) {
+    requestedDocuments.data.forEach( (request) => {
+        requestedDocumentsList.push({
+            'id': request.request_id,
+            'document': request.document_type,
+            'requested_at': request.requested_at,
+            'released_at': request.released_at
+        });
+    });
 
-// function saveNewRequest(data: any) {
-//     httpService.post({uri: "/documents", data: data }, (response) => {
-//         if (response.error) {
-//             alert('Internal error. Please try again');
-//         } else {
-//             dialogs.alert({
-//                 title: "Information",
-//                 message: "Your request is successfully submitted!",
-//                 okButtonText: "OK"
-//             }).then(() => {
-//                 fetchStudentRequest();
-//                 pageObservable.set('purpose', null);
-//                 pageObservable.set('isEditing', false);
-//             });
-//         }
-//     }, () => {
-//         alert('Unable to connect. Please check your internet connection!');
-//         loader.hide();
-//         topmost().navigate("views/home/home");
-//     });
-// }
-
-// function fetchStudentRequest() {
-//     httpService.get({uri: `/students/${studentData.student_id}/documents`}, (response) => {
-//         if (response.error) {
-//             alert('You dont have request');
-//         } else {
-//             let requestedDocuments = response;
-//             if(requestedDocumentsList.length == 0) {
-//                 loadRequestedDocument(requestedDocuments);
-//                 loader.hide();
-//             } else {
-//                 while(requestedDocumentsList.length) {
-//                    requestedDocumentsList.pop();
-//                }
-//                loadRequestedDocument(requestedDocuments);
-//                loader.hide();
-//             }   
-//         }
-//     }, () => {
-//         alert('Unable to connect. Please check your internet connection!');
-//         loader.hide();
-//         topmost().navigate("views/home/home");
-//     });
-// }
-
-// function loadRequestedDocument(requestedDocuments) {
-//     requestedDocuments.data.forEach( (request) => {
-//         requestedDocumentsList.push({
-//             'id': request.request_id,
-//             'document': request.document_type,
-//             'requested_at': request.requested_at,
-//             'released_at': request.released_at
-//         });
-//     });
-
-    // let listview = view.getViewById(page, "requestedDocuments");
-    // listview.items = requestedDocumentsList;
-// }
-
-function load() {
-    requestedDocumentsList.push(
-        {
-            id: "123",
-            document: "TOR",
-            requested_at: "November 25, 1997",
-            released_at: " - "
-        },
-        {
-            id: "123",
-            document: "TOR",
-            requested_at: "November 25, 1997",
-            released_at: " - "
-        },
-        {
-            id: "123",
-            document: "TOR",
-            requested_at: "November 25, 1997",
-            released_at: " - "
-        },
-        {
-            id: "123",
-            document: "TOR",
-            requested_at: "November 25, 1997",
-            released_at: " - "
-        },
-        {
-            id: "123",
-            document: "TOR",
-            requested_at: "November 25, 1997",
-            released_at: " - "
-        },
-        {
-            id: "123",
-            document: "TOR",
-            requested_at: "November 25, 1997",
-            released_at: " - "
-        },
-    );
-        let listview = view.getViewById(page, "requestedDocuments");
-        listview.items = requestedDocumentsList;
+    let listview = view.getViewById(page, "requestedDocuments");
+    listview.items = requestedDocumentsList;
 }
 
 function showErrors() {
@@ -245,15 +101,3 @@ function showErrors() {
         }, 4000);
     }
 }
-
-// function loadDocuments(documents: any) {
-//     documents.data.forEach((document) => {
-//         documentList.push({
-//             value: document.id,
-//             display: document.document_title
-//         });
-//     });
-//     pageObservable.set('selectedIndex', 0);
-//     pageObservable.set('documents', documentList);
-//     loader.hide();
-// }

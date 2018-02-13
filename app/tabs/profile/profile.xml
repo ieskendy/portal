@@ -1,114 +1,96 @@
-<!--
-This is the component view that represents the 'Browse' tab.
-Feel free to customize layouts and components to change how the tab view looks.
--->
 <ScrollView>
-<GridLayout columns="*" rows="*, *" class="page-content" loaded="onLoaded">
-  <StackLayout class="student-info" col="0" row="0">
-    <StackLayout>
-      <GridLayout rows="auto" columns="145,*">
-        <StackLayout row="0" col="0" class="img-con">
-          <Image src="~/img/user.jpg" class="user-image"/>
-          <StackLayout row="0" col="0">
-      </StackLayout>
-        </StackLayout>
-        <StackLayout row="0" col="1">
-          <StackLayout>
-            <StackLayout>
-              <GridLayout rows="auto" columns="auto,*">
-                <StackLayout row="0" col="0">
-              <Label text="&#xf007;" class="fa font-awesome info-icon" textWrap="true"/>
-            </StackLayout>
-            <StackLayout row="0" col="1">
-              <Label text="Name" class="info-title" textWrap="true"/>
-                <Label text="Aron Joshua Bagtas" class="info" textWrap="true"/>
-            </StackLayout>
-              </GridLayout>
-            </StackLayout>
-            <StackLayout>
-              <GridLayout columns="auto,*" rows="auto" class="info-container">
-            <StackLayout row="0" col="0">
-              <Label text="&#xf003;" class="fa font-awesome info-icon" textWrap="true"/>
-            </StackLayout>
-            <StackLayout row="0" col="1">
-              <Label text="Email Address" class="info-title" textWrap="true"/>
-              <Label text="email@emial" class="info" textWrap="true"/>
-            </StackLayout>
-          </GridLayout>
-            </StackLayout>
-            <StackLayout>
-              <GridLayout columns="auto,*" rows="auto" class="info-container">
-            <StackLayout row="0" col="0">
-              <Label text="&#xf02d;" class="fa font-awesome info-icon" textWrap="true"/>
-            </StackLayout>
-            <StackLayout row="0" col="1">
-              <Label text="Course" class="info-title" textWrap="true"/>
-              <Label text="BS Information System" class="info" textWrap="true"/>
-            </StackLayout>
-          </GridLayout>
-            </StackLayout>
-            <StackLayout>
-              <GridLayout columns="auto,*" rows="auto" class="info-container">
-              <StackLayout row="0" col="0">
-                <Label text="&#xf198;" class="fa font-awesome info-icon" textWrap="true"/>
-              </StackLayout>
-              <StackLayout row="0" col="1">
-                <Label text="ID Number" class="info-title" textWrap="true"/>
-                <Label text="14-20130" class="info" textWrap="true"/>
-              </StackLayout>
-            </GridLayout>
-            </StackLayout>
-            <StackLayout>
-              <GridLayout columns="auto,*" rows="auto" class="info-container">
-              <StackLayout row="0" col="0">
-                <Label text="&#xf095;" class="fa font-awesome info-icon" textWrap="true"/>
-              </StackLayout>
-              <StackLayout row="0" col="1">
-                <Label text="Contact Number" class="info-title" textWrap="true"/>
-                <Label text="0902134512" class="info" textWrap="true"/>
-              </StackLayout>
-            </GridLayout>
-            </StackLayout>
-            <StackLayout>
-              <GridLayout columns="auto,*" rows="auto" class="info-container">
-              <StackLayout row="0" col="0">
-                <Label text="&#xf10c;" class="fa font-awesome info-icon" textWrap="true"/>
-              </StackLayout>
-              <StackLayout row="0" col="1">
-                <Label text="Scholarship Status" class="info-title" textWrap="true"/>
-                <Label text="Partial Scholar" class="info" textWrap="true"/>
-              </StackLayout>
-            </GridLayout>
-            </StackLayout>
-          </StackLayout>
-
-        </StackLayout>
-      </GridLayout>
-    </StackLayout>
-  </StackLayout>
-  <StackLayout class="nav-buttons" row="1">
-    <StackLayout>
-  <GridLayout rows="auto" columns="*,*">
-    <StackLayout row="0" col="0" class="navigation-button grades" tap="grades">
-      <Label text="&#xf02d;" class="fa font-awesome home-icon" />
-                    <Label text="Grades" class="nav-title" textWrap="true"/>
-    </StackLayout>
-    <StackLayout row="0" col="1" class="navigation-button sched" tap="schedule">
-      <Label text="&#xf073;" class="fa font-awesome home-icon" />
-                    <Label text="Course & Schedule" class="nav-title" textWrap="true" />
-    </StackLayout>
-  </GridLayout>
-  <GridLayout rows="auto" columns="*,*">
-    <StackLayout row="0" col="0" class="navigation-button request" tap="document">
-      <Label text="&#xf298;" class="fa font-awesome home-icon" />
-                    <Label text="Document Requests" class="nav-title" textWrap="true"/>
-    </StackLayout>
-    <StackLayout row="0" col="1" class="navigation-button misc" tap="fees">
-      <Label text="&#xf0d6;" class="fa font-awesome home-icon" />
-      <Label text="Student Ledger" textWrap="true" class="nav-title" />
-    </StackLayout>
-  </GridLayout>
-    </StackLayout>
-</StackLayout>
-</GridLayout>
+	<GridLayout class="page-content" loaded="onLoaded" columms="*" rows="*">
+		    <StackLayout col="0" row="0">
+		    	<StackLayout class="user-info">
+		    		<GridLayout rows="auto" columns="145,*">
+		    			<StackLayout row="0" col="0">
+		    				<StackLayout>
+			    				<Image class="user-img" src="~/img/user1.jpg" horizontalAlignment="center"/>
+			    			</StackLayout>
+			    			<StackLayout>
+			    				<Label class="font-awesome info" text="{{ student.student_number }}" textWrap="true"/>
+			    			</StackLayout>
+		    			</StackLayout>
+		    			<StackLayout row="0" col="1">
+		    				<StackLayout class="right-info-con">
+			    				<StackLayout class="info-right">
+			    					<GridLayout columns="auto,*" rows="auto">
+			    						<StackLayout row="0" col="0">
+						    				<Label class="font-awesome info-icon" text="&#xf007;" textWrap="true"/>
+			    						</StackLayout>
+			    						<StackLayout  row="0" col="1">
+			    							<Label class="stud-info" text="{{ student.student_name }}" textWrap="true"/>
+			    						</StackLayout>
+			    					</GridLayout>
+				    			</StackLayout>
+				    			<StackLayout class="info-right">
+				    				<GridLayout columns="auto,*" rows="auto">
+			    						<StackLayout row="0" col="0">
+						    				<Label class="font-awesome info-icon" text="&#xf003;" textWrap="true"/>
+			    						</StackLayout>
+			    						<StackLayout  row="0" col="1">
+			    							<Label class="stud-info" text="{{ student.email }}" textWrap="true"/>
+			    						</StackLayout>
+			    					</GridLayout>
+				    			</StackLayout>
+				    			<StackLayout class="info-right">
+			    					<GridLayout columns="auto,*" rows="auto">
+			    						<StackLayout row="0" col="0">
+						    				<Label class="font-awesome info-icon" text="&#xf02d;" textWrap="true"/>
+			    						</StackLayout>
+			    						<StackLayout  row="0" col="1">
+			    							<Label class="stud-info" text="{{ student.program_title }}" textWrap="true"/>
+			    						</StackLayout>
+			    					</GridLayout>
+				    			</StackLayout>
+				    			<StackLayout class="info-right">
+				    				<GridLayout columns="auto,*" rows="auto">
+			    						<StackLayout row="0" col="0">
+						    				<Label class="font-awesome info-icon" text="&#xf098;" textWrap="true"/>
+			    						</StackLayout>
+			    						<StackLayout  row="0" col="1">
+			    							<Label class="stud-info" text="{{ student.contact_number }}" textWrap="true"/>
+			    						</StackLayout>
+			    					</GridLayout>
+				    			</StackLayout>
+				    			<StackLayout class="info-right">
+				    				<GridLayout columns="auto,*" rows="auto">
+			    						<StackLayout row="0" col="0">
+						    				<Label class="font-awesome info-icon" text="&#xf10c;" textWrap="true"/>
+			    						</StackLayout>
+			    						<StackLayout  row="0" col="1">
+			    							<Label class="stud-info" text="{{ student.scholarship_status + ' ' + 'Scholar'}}" textWrap="true"/>
+			    						</StackLayout>
+			    					</GridLayout>
+				    			</StackLayout>
+		    				</StackLayout>
+		    			</StackLayout>
+					</GridLayout>
+		    	</StackLayout>
+		    	<StackLayout>
+		    		<StackLayout class="nav-buttons">
+		    			<GridLayout columns="*,*" rows="auto">
+		    				<StackLayout row="0" col="0" class="navigation-button grades" tap="grades">
+		    					<Label text="&#xf02d;" class="fa font-awesome home-icon"/>
+		                    	<Label text="Grades" class="nav-title" textWrap="true"/>
+		    				</StackLayout>
+		    				<StackLayout row="0" col="1" class="navigation-button sched" tap="schedule">
+		    					<Label text="&#xf073;" class="fa font-awesome home-icon"/>
+			                    <Label text="Course & Schedule" class="nav-title" textWrap="true"/>
+		    				</StackLayout>
+		    			</GridLayout>
+		    			<GridLayout columns="*,*" rows="auto">
+		    				<StackLayout row="0" col="0" class="navigation-button request" tap="document">
+		      					<Label text="&#xf298;" class="fa font-awesome home-icon" />
+		                    	<Label text="Student Request (Documents)" class="nav-title" textWrap="true"/>
+		    				</StackLayout>
+						    <StackLayout row="0" col="1" class="navigation-button misc" tap="fees">
+						      	<Label text="&#xf0d6;" class="fa font-awesome home-icon" />
+						        <Label text="Student Ledger" textWrap="true" class="nav-title" />
+						    </StackLayout>
+		    			</GridLayout>
+		    		</StackLayout>
+		    	</StackLayout>
+		    </StackLayout>
+	</GridLayout>
 </ScrollView>

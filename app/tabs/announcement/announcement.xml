@@ -14,23 +14,23 @@
 	<GridLayout columns="*" rows="*">
     <StackLayout class="layout" col="0" row="0">
 		   <StackLayout>
-					<GridLayout columns="auto,*" backgroundColor="Tomato" rows="auto,auto,auto">
+					<GridLayout columns="auto,*" backgroundColor="{{ announcement.color }}" rows="auto,auto,auto">
           		<StackLayout class="announcement-date"  row="0" col="0">
-          			<Label text="November" class="month" textWrap="true"/>
-          			<Label text="25" class="day" textWrap="true"/>
-          			<Label text="1997" class="year" textWrap="true"/>
+          			<Label text="{{ announcement.month }}" class="month" textWrap="true"/>
+          			<Label text="{{ announcement.day }}" class="day" textWrap="true"/>
+          			<Label text="{{ announcement.year }}" class="year" textWrap="true"/>
           		</StackLayout>
           		<StackLayout row="0" col="1" class="con">
-          			<Label text="Pictorial" class="announcement-title" textWrap="true"/>
+          			<Label text="{{ announcement.title }} " class="announcement-title" textWrap="true"/>
           			<GridLayout columns="auto,*" rows="auto">
           				<Label text="Posted by:" class="postBy" textWrap="true" row="0" col="0"/>
-          				<Label text="Me" class="poster" textWrap="true" row="0" col="1"/>
+          				<Label text="{{ announcement.posted_by }}" class="poster" textWrap="true" row="0" col="1"/>
           			</GridLayout>
           		</StackLayout>
           	</GridLayout>
           	<StackLayout class="announcement-info">
             	<StackLayout>
-            		<Label text="Aladin Mother******" class="announcement-content" textWrap="true"/>
+            		<Label text="{{ announcement.description }}" class="announcement-content" textWrap="true"/>
             	</StackLayout>
           	</StackLayout>
 				</StackLayout>

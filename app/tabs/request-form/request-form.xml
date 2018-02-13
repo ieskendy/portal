@@ -1,0 +1,56 @@
+<Page class="page app-page"
+	xmlns:dd="nativescript-drop-down"
+	xmlns="http://schemas.nativescript.org/tns.xsd"
+	loaded="pageLoaded"
+	>
+	<page.ActionBar>
+		<ActionBar class="action-bar">
+			<NavigationButton android.systemIcon="ic_menu_back" tap="goBack"/>
+			<StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left">
+				<Label class="project-title" text="LVCC | Document Requests" textWrap="true"/>
+			</StackLayout>
+		</ActionBar>
+	</page.ActionBar>
+	<ScrollView>
+		<GridLayout rows="*" columns="*">
+			<StackLayout col="0" row="0" class="layout">
+				<StackLayout>
+        			<StackLayout>
+	            		<Label text="Request Form" class="head-title" textWrap="true"/>
+	            	</StackLayout>
+        			<StackLayout class="error-message" visibility="{{ errors ? 'visible' : 'collapsed' }}">
+						<ListView id="errors" class="list-group">
+                            <ListView.itemTemplate>
+                                <StackLayout class="error-container">
+									<Label class="message" text="{{ title }}" />
+								</StackLayout>
+                            </ListView.itemTemplate>
+                        </ListView>
+					</StackLayout>
+        			<StackLayout class="textField-con">
+        				<StackLayout>
+	            			<Label text="Document Type:" class="textField-name" textWrap="true"/>
+        				</StackLayout>
+                        <StackLayout class="dropdown">
+                            <dd:DropDown
+                            			items="{{ documents }}"
+                            			selectedIndex="{{ selectedIndex }}"
+	                                    opened="dropDownOpened"
+	                                    closed="dropDownClosed"
+	                                    selectedIndexChanged="dropDownSelectedIndexChanged"/>
+                        </StackLayout>
+            			<StackLayout>
+            				<Label text="Purpose:" class="textField-name" style.paddingBottom="10" textWrap="true"/>
+            			</StackLayout>
+            			<StackLayout >
+		            		<TextField text="{{ purpose }}" class="purpose" textWrap="true"/>
+            			</StackLayout>
+	            		<StackLayout>
+	            			<Button text="Submit | &#xf1d9;" class="fa font-awesome button" tap="submitRequest"/>
+	            		</StackLayout>
+                    </StackLayout>
+				</StackLayout>
+			</StackLayout>
+		</GridLayout>
+	</ScrollView>
+</Page>
