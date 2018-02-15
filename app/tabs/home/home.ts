@@ -35,7 +35,7 @@ export function onLoaded(args: EventData) {
           cancelable: true,
           max: 100,
         },
-    });
+      });
       requestAnnouncements();
     }
     page.bindingContext = pageObservable;

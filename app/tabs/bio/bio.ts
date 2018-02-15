@@ -113,7 +113,7 @@ export function updateStudentInformation()
 
 function requestUpdateStudentInformation(data) {
 	console.log('Updating Student Information');
-	httpServie.put({uri: `/students/${studentData.student_id}`, data: data}, (response) => {
+	httpServie.post({uri: `/students/${studentData.student_id}`, data: data}, (response) => {
 		if (response.error) {
 			loader.hide();
 			errors.push({
@@ -122,14 +122,8 @@ function requestUpdateStudentInformation(data) {
 			showErrors();
 		} else {
 			loader.hide();
-			dialogs.alert({
-				title: 'Information',
-				message: 'You successfully update your information. You need to log out to updated changes',
-				okButtonText: "Sign out"
-			}).then(() => {
-				storageService.destroy('student');
-				topmost().navigate('tabs/login/login');
-			});	
+			alert('Successfully updated');
+			storageService.update('student', response);
 		}
 	}, () => {
 		alert('Unable to connect. Please check your internet connection!');

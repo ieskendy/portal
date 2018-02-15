@@ -6,7 +6,6 @@ import connectivity = require('connectivity');
 import {topmost} from "ui/frame";
 const storageService = new Storage;
 
-
 application.on(application.launchEvent, (args: application.ApplicationEventData) => {
     if (args.android) {
         console.log("Launched Android application with the following intent: " + args.android + ".");

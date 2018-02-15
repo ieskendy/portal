@@ -52,7 +52,7 @@ export function submitAcademicYear(args: SelectedIndexChangedEventData) {
     let selectedItem = pageObservable.get('selectedIndex');
     let selectedValue = academicYearList.getValue(selectedItem);
     let semester = academicYearList.getItem(selectedItem);
-    pageObservable.set('semester', semester.display);
+    
     loader.show({
 		message: 'Please wait....',
   		progress: 0.65,
@@ -62,7 +62,15 @@ export function submitAcademicYear(args: SelectedIndexChangedEventData) {
 		    max: 100,
   		},
 	});
-    requestGrades(selectedValue);
+	if (!semester && !selectedValue) {
+        alert('Please fill up the form properly');
+    }
+    
+    if (semester && selectedValue) {
+        pageObservable.set('semester', semester.display);
+        requestGrades(selectedValue);
+    }
+    
 }
 
 function requestGrades(academic_year) {

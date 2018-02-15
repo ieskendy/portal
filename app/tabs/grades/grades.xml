@@ -36,10 +36,10 @@
                 </StackLayout>
 			</StackLayout>
 		</ScrollView>
-		<StackLayout visibility="{{ academic_year ? 'collapsed' : 'visible' }}">
+		<StackLayout row="0" class="layout" visibility="{{ academic_year ? 'collapsed' : 'visible' }}">
 			<ScrollView>
 				<GridLayout columns="*" rows="*">
-					<StackLayout class="layout" col="0" row="0">
+					<StackLayout col="0" row="0">
 						<GridLayout rows="auto" class="head">
 							<StackLayout row="0">
 								<Label text="Summary of Grades" class="grade-text" textWrap="true"/>

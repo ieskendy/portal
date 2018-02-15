@@ -18,6 +18,7 @@ let pageObservable = new Observable();
 let storageService = new Storage;
 let errors = new ObservableArray.ObservableArray([]);
 let studentData = storageService.get('student');
+let username = storageService.get('username');
 
 export function pageLoaded(args: EventData) {
 	page = <Page>args.object;
@@ -69,15 +70,9 @@ function requestChangeUsername(data) {
 			showErrors();
 			loader.hide();
 		} else {
-			dialogs.alert({
-				title: 'Information',
-				message: 'Success! You have a new username. Sign out to try it!',
-				okButtonText: "Sign out"
-			}).then(() => {
-				loader.hide();
-				storageService.destroy('student');
-				topmost().navigate('tabs/login/login');
-			});	
+			storageService.update('username', {username: data.username});
+			alert('Your username is successfully updated');
+			loader.hide();	
 		}
 	}, () => {
 		alert('Unable to connect. Please check your internet connection!');

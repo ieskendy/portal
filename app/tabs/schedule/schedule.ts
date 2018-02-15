@@ -58,8 +58,13 @@ export function viewSchedule() {
     });
 	let day = days.getValue(selectedday);
 	let section = sectionList.getValue(selectedsection);
-    requestSchedules(section, day);
- pageObservable.set('schedule_form',false);
+    if (!day && !section) {
+        alert('Please fill up the form properly');
+    } else {
+        requestSchedules(section, day);
+        pageObservable.set('schedule_form',false);
+    }
+        
 }
 
 export function onChange() {

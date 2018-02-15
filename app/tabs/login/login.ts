@@ -18,7 +18,7 @@ let errors = new ObservableArray.ObservableArray([]);
 
 export function pageLoaded(args: EventData) {
 	if(storageServices.get('student')) {
-		topmost().navigate("views/home/home");
+		topmost().navigate("tabs/tabs-page");
 	}
 	page = <Page>args.object;
 	page.bindingContext = pageObservable;
@@ -65,8 +65,9 @@ export function doLogin() {
 function requestLogin(credentials: {'username': string, 'password': string}) {
 	httpService.post({uri: '/login', data: credentials}, (response) => {
 		if (! response.error) {
-			let data = response;
-			storageServices.store('student', data);
+			storageServices.store('student', response.student);
+			storageServices.store('user_token', {token: response.token});
+			storageServices.store('username', {username: response.student.username});
 			topmost().navigate("tabs/tabs-page");
 			loader.hide();
 		} else {

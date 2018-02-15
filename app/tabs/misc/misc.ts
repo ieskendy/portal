@@ -47,17 +47,23 @@ export function submitAcademicYear(args: SelectedIndexChangedEventData) {
     let selectedItem = pageObservable.get('selectedIndex');
     let selectedValue = academicYearList.getValue(selectedItem);
     loader.show({
-      message: 'Please wait....',
+        message: 'Please wait....',
         progress: 0.65,
         android: {
-          indeterminate: true,
-          cancelable: true,
-          max: 100,
+            indeterminate: true,
+            cancelable: true,
+            max: 100,
         },
     });
     let semester = academicYearList.getItem(selectedItem);
-    pageObservable.set('semester', semester.display);
-    requestStudentPayments(selectedValue);
+    if (!semester && !selectedValue) {
+        alert('Please fill up the form properly');
+    }
+    
+    if (semester && selectedValue) {
+        pageObservable.set('semester', semester.display);
+        requestStudentPayments(selectedValue);
+    }
 }
 
 export function onChange() {

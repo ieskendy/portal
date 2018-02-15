@@ -12,7 +12,6 @@ import { ValueList } from "nativescript-drop-down";
 let config = require("../../shared/config");
 let view = require("ui/core/view");
 
-let drawer;
 let page;
 
 let loader = new LoadingIndicator();
@@ -22,22 +21,20 @@ let storageService = new Storage;
 let documentList = new ValueList;
 let requestedDocumentsList = new ObservableArray.ObservableArray([]);
 let errors = new ObservableArray.ObservableArray([]);
-let studentData = storageService.get('student');
+let studentData;
 
 export function onLoaded(args: EventData) {
 	  page = <Page>args.object;
+    studentData = storageService.get('student');
     pageObservable.set('student', studentData);
-    console.log(JSON.stringify(studentData));
     page.bindingContext = pageObservable;
 }
 
 export function grades() {
-  console.log('Grades Tap');
   topmost().navigate("tabs/grades/grades");
 }
 
 export function schedule() {
-  console.log('Schedule Tap');
   topmost().navigate("tabs/schedule/schedule");
 }
 
@@ -46,7 +43,6 @@ export function document() {
 }
 
 export function fees() {
-  console.log('Fee Tap');
   topmost().navigate("tabs/misc/misc");
 }
 

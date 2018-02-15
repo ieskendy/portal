@@ -18,7 +18,7 @@ export class Http {
 
     if (this.storageService.get('student')) {
       this.studentData = this.storageService.get('student');
-      this.token = this.studentData.api_token;  
+      this.token = this.storageService.get('user_token').token;  
     }
     
   }
