@@ -23,13 +23,13 @@
 	            	</StackLayout>
 					<StackLayout class="profile-info">
 						<StackLayout class="error-message" visibility="{{ errors ? 'visible' : 'collapsed' }}">
-							<ListView id="errors" class="list-group">
-		                        <ListView.itemTemplate>
+							<Repeater id="errors" class="list-group">
+		                        <Repeater.itemTemplate>
 									<StackLayout class="error-container">
 										<Label class="message" text="{{ title }}" textWrap="true"/>
 									</StackLayout>
-								</ListView.itemTemplate>
-							</ListView>
+								</Repeater.itemTemplate>
+							</Repeater>
 						</StackLayout>
 						<StackLayout>
 							<GridLayout rows="auto, auto" columns="*,*,50">
