@@ -19,10 +19,10 @@
 					<StackLayout visibility="{{ academic_year ? 'visible' : 'collapsed' }}">
 						<StackLayout class="dropDown">
 							<StackLayout class="header">
-					    		<Label class="head-title" text="Miscellaneous Fee" textWrap="true"/>
+					    		<Label class="head-title" text="Semester" textWrap="true"/>
 					    	</StackLayout>
 					    	<StackLayout class="formDD">
-					    		<Label text="Please choose the academic year!" class="information" textWrap="true"/>
+					    		<Label text="Select semester*" class="information" textWrap="true"/>
 			                    <StackLayout class="drop-down">
 			                        <dd:DropDown items="{{ items }}"
 			                        	selectedIndex="{{ selectedIndex }}"

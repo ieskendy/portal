@@ -8,7 +8,7 @@
 			<ActionItem tap="showForm" ios.systemIcon="4" android.systemIcon="ic_menu_add" ios.position="right"
 		visibility="{{ isEditing ? 'collapsed' : 'visible' }}"/>
 			<StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="center">
-				<Label class="actionBar-title" text="Document Requests" textWrap="true"/>
+				<Label class="actionBar-title" text="Student Request" textWrap="true"/>
 			</StackLayout>
  		</ActionBar>
 	</page.ActionBar>
@@ -18,7 +18,7 @@
 				<ScrollView>
 					<StackLayout>
 						<StackLayout class="header">
-				    		<Label class="head-title" text="Requests History" textWrap="true"/>
+				    		<Label class="head-title" text="Request History" textWrap="true"/>
 				    	</StackLayout>
 				    	<StackLayout class="history-content" width="100%" height="100%">
 				    		<GridLayout columns="*,*,*" rows="auto">

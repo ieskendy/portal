@@ -38,6 +38,7 @@ exports.pageLoaded = function(args: EventData) {
           },
     });
     requestDocuments();
+    pageObservable.set('purpose', '');
     page.bindingContext = pageObservable;
 };
 
@@ -115,6 +116,7 @@ function saveNewRequest(data: any) {
     httpService.post({uri: "/documents", data: data }, (response) => {
         if (response.error) {
             alert('Internal error. Please try again');
+            loader.hide();
         } else {
             dialogs.alert({
                 title: "Information",
@@ -122,6 +124,7 @@ function saveNewRequest(data: any) {
                 okButtonText: "OK"
             }).then(() => {
                 topmost().navigate("tabs/request/request");
+                loader.hide();
             });
         }
     }, (noConnection) => {
