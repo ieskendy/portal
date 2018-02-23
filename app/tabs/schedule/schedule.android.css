@@ -1,62 +1,78 @@
-.schedule-container {
-	padding: 10;
-	border-bottom-width: 1;
-	font-size: 18;
+@import 'nativescript-theme-core/css/sky.css';
+.actionBar-title {
+	font-family: abel-regular;
+	text-transform: uppercase;
+	letter-spacing: .2;
+  	font-weight: bold;
 }
-.dd-menu {
-	margin-top: 15;
-	margin-bottom: 15;
+.container {
+	margin: 5;
 }
-.dd-name {
-	margin-top: 15;
-	text-align: center;
-	font-size: 20px;
-	font-weight: bold;
-}
-.head{
-	padding: 20,0,20,0;
-	border-top-left-radius: 20;
-	border-top-right-radius: 20;
+.header {
+	padding: 15,0,15,0;
+	border-top-left-radius: 10;
+	border-top-right-radius: 10;
 	background-color: #30bcff;
 }
-.backIcon {
-	padding: 5,0,5,20;
-	font-size: 15;
-	color: #fff;
-}
-.day-name {
-	text-align: center;
+.head-title {
 	text-transform: uppercase;
 	font-weight: bold;
-	letter-spacing: .1;
+	text-align: center;
 	font-family: abel-regular;
-	font-size: 20;
 	color: #fff;
+	letter-spacing: .2;
+}
+.dropDown {
+	margin-top: 80;
+}
+.formDD {
+	padding: 15,15,30,15;
+	border-bottom-left-radius: 10;
+	border-bottom-right-radius: 10;
+	background-color: #fff;
+}
+.drop-down {
+	margin-top: 15; 
+	padding: 5;
+	width: 80%;
+	border-width: 1;
+	border-radius: 2;
+}
+.dropdown-data {
+	padding: 3;
+	text-align:center;
+}
+.dd-button {
+	margin-top: 25;
+	width: 50%;
+	height: 35;
+	border-top-left-radius: 5;
+	border-bottom-right-radius: 5;
+	background-color: #30bcff;
+	color: #fff;
+	font-weight: bold;
+	font-size: 13;
+}
+DropDown {
+	text-align: center;
+}
+.information {
+	margin-top: 15;
+	text-align: center;
+}
+
+.sched-content {
+	padding: 10;
+	background-color: #fff;
+}
+.sched {
+	padding: 0,10,10,10;
+}
+.subject-name {
+	padding: 5,0,10,0;
+	text-align: center;
+	font-weight: bold;
 }
 .sched-field {
-	padding-right: 10;
 	font-weight: bold;
-}
-.subject-name{
-	padding-top: 10;
-	padding-bottom: 10;
-	text-align: center;
-	font-weight: bold;
-}
-.SubjectCode {
-	margin-left: 50;
-}
-.error-message {
-	margin-top: 10;
-	min-height: 50px;
-	width: 70%;
-	background-color: #df1b24;
-	border-radius: 10px;
-	margin-bottom: 20px;
-}	
-.message {
-	font-size: 20px;
-	margin: 10px;
-	color: #fff;
-	text-align: center;
 }

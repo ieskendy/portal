@@ -1,0 +1,52 @@
+<Page loaded="pageLoaded" class="page"
+	xmlns="http://schemas.nativescript.org/tns.xsd">
+	<page.ActionBar>
+		<ActionBar class="action-bar">
+			<NavigationButton android.systemIcon="ic_menu_back" tap="redirectBack"/>
+			<StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="center">
+				<Label class="actionBar-title" text="Announcement" textWrap="true"/>
+			</StackLayout>
+ 		</ActionBar>
+	</page.ActionBar>
+	<StackLayout class="container">
+		<StackLayout class="header" backgroundColor="{{ announcement.color }}">
+    		<Label class="announcementTitle" text="{{ announcement.title }}" textWrap="true"/>
+    	</StackLayout>
+		<StackLayout class="contentCon">
+			<StackLayout class="con">
+				<GridLayout columns="*,*" rows="auto">
+					<StackLayout row="0" col="0" class="poster">
+						<GridLayout columns="auto,auto" rows="auto">
+							<StackLayout row="0" col="0">
+								<Label class="label-bold" text="Post By:" textWrap="true"/>
+							</StackLayout>
+							<StackLayout row="0" col="1">
+								<Label class="" text="{{ announcement.posted_by }}" textWrap="true"/>
+							</StackLayout>
+						</GridLayout>
+					</StackLayout>
+					<StackLayout row="0" col="1" class="date">
+						<GridLayout columns="auto,auto" rows="auto">
+							<StackLayout row="0" col="0">
+								<Label class="label-bold" text="Post Date:" textWrap="true"/>
+							</StackLayout>
+							<StackLayout row="0" col="1">
+								<GridLayout columns="auto,auto,auto,auto" rows="auto">
+									<Label text="{{ announcement.month }}" class="month" textWrap="true" row="0" col="0"/>
+				          			<Label text="{{ announcement.day }}" class="day" textWrap="true" row="0" col="1"/>
+				          			<Label text=", " class="comma" textWrap="true" row="0" col="2"/>
+				          			<Label text="{{ announcement.year }}" class="year" textWrap="true" row="0" col="3"/>
+								</GridLayout>
+							</StackLayout>
+						</GridLayout>
+					</StackLayout>
+				</GridLayout>
+			</StackLayout>
+			<StackLayout height="100%">
+				<ScrollView>
+					<Label class="content" text="{{ announcement.description }}" textWrap="true"/>
+				</ScrollView>
+			</StackLayout>
+		</StackLayout>
+	</StackLayout>
+</Page>

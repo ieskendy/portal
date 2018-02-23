@@ -82,7 +82,7 @@ function requestChangePassword(data) {
 			loader.hide();
 			alert('You`re password is successfully updated');
 		}
-	}, () => {
+	}, (noConnection) => {
 		alert('Unable to connect. Please check your internet connection!');
         loader.hide();
         topmost().navigate("tabs/tabs-page");

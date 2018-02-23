@@ -1,104 +1,108 @@
-<Page class="page app-page"
+<Page class="page"
 	xmlns:dd="nativescript-drop-down"
 	xmlns="http://schemas.nativescript.org/tns.xsd"
-	xmlns:sd="nativescript-pro-ui/sidedrawer"
-	xmlns:lv="nativescript-pro-ui/listview"
 	loaded="pageLoaded"
 	>
 	<page.ActionBar>
 		<ActionBar class="action-bar">
-			<NavigationButton tap="goBack" android.systemIcon="ic_menu_back" ios.position="right" />
+			<NavigationButton ios.systemIcon="8" android.systemIcon="ic_menu_back" ios.position="left" tap="goBack"/>
 			<ActionItem tap="onChange" ios.systemIcon="12" android.systemIcon="ic_menu_search" ios.position="right"
 		visibility="{{ schedule_form ? 'collapsed' : 'visible' }}"/>
-			<StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left">
-				<Label class="project-title" text="Schedule" textWrap="true"/>
+			<StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="center">
+				<Label class="actionBar-title" text="Course & Schedule" textWrap="true"/>
 			</StackLayout>
-		</ActionBar>
+ 		</ActionBar>
 	</page.ActionBar>
-	<GridLayout rows="*" columns="*">
+	<StackLayout>
 		<ScrollView>
-			<StackLayout col="0" row="0">
-	        	<StackLayout class="dd-container" visibility="{{ schedule_form ? 'visible' : 'collapsed' }}">
-	                <StackLayout class="container">
-	                    <StackLayout>
-	        				<Label text="Schedule" class="head-title head-name" textWrap="true"/>
-	        			</StackLayout>
-	        			<StackLayout class="dd-menu">
-	            			<StackLayout>
-		            			<Label text="Section/Block"  class="dd-name"/>
-	            			</StackLayout>
-	                        <StackLayout class="drop-down">
-	                            <dd:DropDown items="{{ sections }}" selectedIndex="{{ selectedSection }}"
-	                                opened="dropDownOpened" closed="dropDownClosed"
-	                                selectedIndexChanged="dropDownSelectedIndexChanged"
-	                            />
-	                        </StackLayout>
-	        				<StackLayout>
-	                    		<Label text="Day" class="dd-name"/>
-	        				</StackLayout>
-	                        <StackLayout class="drop-down">
-	                            <dd:DropDown items="{{ days }}" selectedIndex="{{ selectedDay }}"
-	                                opened="dropDownOpened" closed="dropDownClosed"
-	                                selectedIndexChanged="dropDownSelectedIndexChanged"
-	                            />
-	                        </StackLayout>
-	        			</StackLayout>
-	                     <StackLayout class="buttons">
-	                        <Button tap="viewSchedule" text="Submit" class="font-awesome dd-button"/>
-	                    </StackLayout>
-	                </StackLayout>
-	            </StackLayout>
-	        </StackLayout>
-		</ScrollView>
-		<StackLayout  visibility="{{ schedule_form ? 'collapsed' : 'visible' }}">
-			<GridLayout columns="*" rows="*">
-				<StackLayout col="0" row="0" class="layout">
-					<GridLayout rows="auto" class="head">
-						<StackLayout row="0" col="1">
-							<Label text="Monday" class="day-name" textWrap="true"/>
-						</StackLayout>
-					</GridLayout>
-					<GridLayout rows="*">
-						<ListView row="0" id="schedules" class="list-group">
-					        <ListView.itemTemplate>
-					            <StackLayout width="100%">
-					            	<StackLayout class="schedule-container">
-					            		<StackLayout class="subject-name">
-					            			<StackLayout>
-				            					<Label text="{{ course_title }}" textWrap="true"/>
-				            				</StackLayout>
-					            		</StackLayout>
-										<StackLayout>
-											<GridLayout rows="auto" columns="110,*">
-										    	<Label text="Time Start:" class="sched-field" textWrap="true" row="0" col="0"/>
-										    	<Label text="{{ time_start }}" class="" textWrap="true" row="0" col="1"/>
-											</GridLayout>
-										</StackLayout>
-										<StackLayout>
-											<GridLayout rows="auto" columns="110,*">
-										    	<Label text="Time End:" class="sched-field" textWrap="true" row="0" col="0"/>
-										    	<Label text="{{ time_end }}" class="" textWrap="true" row="0" col="1"/>
-											</GridLayout>
-										</StackLayout>
-										<StackLayout>
-											<GridLayout rows="auto" columns="110,*">
-										    	<Label text="Room:" class="sched-field" textWrap="true" row="0" col="0"/>
-										    	<Label text="{{ room }}" class="" textWrap="true" row="0" col="1"/>
-											</GridLayout>
-										</StackLayout>
-										<StackLayout>
-											<GridLayout rows="auto" columns="110,*">
-										    	<Label text="Instructor:" class="sched-field" textWrap="true" row="0" col="0"/>
-										    	<Label text="{{ instructor }}" class="" textWrap="true" row="0" col="1"/>
-											</GridLayout>
-										</StackLayout>
-									</StackLayout>
-					            </StackLayout>
-					        </ListView.itemTemplate>
-					    </ListView>
-					</GridLayout>
+			<StackLayout class="container">
+				<StackLayout visibility="{{ schedule_form ? 'visible' : 'collapsed' }}">
+					<StackLayout class="dropDown">
+						<StackLayout class="header">
+				    		<Label class="head-title" text="Schedule" textWrap="true"/>
+				    	</StackLayout>
+				    	<StackLayout class="formDD">
+				    		<StackLayout>
+					    		<Label text="Course / Block" class="information" textWrap="true"/>
+			                    <StackLayout class="drop-down">
+			                        <dd:DropDown items="{{ sections }}"
+			                        	selectedIndex="{{ selectedSection }}"
+			                            opened="dropDownOpened"
+			                            closed="dropDownClosed"
+			                            selectedIndexChanged="dropDownSelectedIndexChanged"
+			                            class="dropdown-data"
+			                        />
+			                    </StackLayout>
+				    		</StackLayout>
+				    		<StackLayout>
+			                    <Label text="Day" class="information" textWrap="true"/>
+			                    <StackLayout class="drop-down">
+			                        <dd:DropDown items="{{ days }}"
+			                        	selectedIndex="{{ selectedDay }}"
+			                            opened="dropDownOpened"
+			                            closed="dropDownClosed"
+			                            selectedIndexChanged="dropDownSelectedIndexChanged"
+			                            class="dropdown-data"
+			                        />
+			                    </StackLayout>
+				    		</StackLayout>
+		                 	<StackLayout class="buttons">
+		                        <Button tap="viewSchedule" text="Submit" class="font-awesome dd-button"/>
+		                    </StackLayout>
+				    	</StackLayout>
+					</StackLayout>
 				</StackLayout>
-			</GridLayout>
+			</StackLayout>
+		</ScrollView>
+		<StackLayout class="container">
+			<ScrollView>
+				<StackLayout width="100%" height="100%">
+					<StackLayout visibility=" {{ schedule_form ? 'collapsed' : 'visible' }}">
+						<StackLayout>
+							<StackLayout class="header">
+					    		<Label class="head-title" text="{{ day }}" textWrap="true"/>
+					    	</StackLayout>
+						</StackLayout>
+						<StackLayout class="sched-content" height="100%" width="100%">
+							<StackLayout>
+								<ListView class="listview list-group" id="schedules">
+									<ListView.itemTemplate>
+										<StackLayout class="sched" height="100%" width="100%">
+											<StackLayout>
+												<Label class="subject-name" text="{{ course_title }}" textWrap="true"/>
+											</StackLayout>
+											<StackLayout>
+												<GridLayout rows="auto" columns="100,*">
+											    	<Label text="Time Start:" class="sched-field" textWrap="true" row="0" col="0"/>
+											    	<Label text="{{ time_start }}" class="" textWrap="true" row="0" col="1"/>
+												</GridLayout>
+											</StackLayout>
+											<StackLayout>
+												<GridLayout rows="auto" columns="100,*">
+											    	<Label text="Time End:" class="sched-field" textWrap="true" row="0" col="0"/>
+											    	<Label text="{{ time_end }}" class="" textWrap="true" row="0" col="1"/>
+												</GridLayout>
+											</StackLayout>
+											<StackLayout>
+												<GridLayout rows="auto" columns="100,*">
+											    	<Label text="Room:" class="sched-field" textWrap="true" row="0" col="0"/>
+											    	<Label text="{{ room }}" class="" textWrap="true" row="0" col="1"/>
+												</GridLayout>
+											</StackLayout>
+											<StackLayout>
+												<GridLayout rows="auto" columns="100,*">
+											    	<Label text="Instructor:" class="sched-field" textWrap="true" row="0" col="0"/>
+											    	<Label text="{{ instructor }}" class="" textWrap="true" row="0" col="1"/>
+												</GridLayout>
+											</StackLayout>
+										</StackLayout>
+									</ListView.itemTemplate>
+								</ListView>
+							</StackLayout>
+						</StackLayout>
+					</StackLayout>
+				</StackLayout>
+			</ScrollView>
 		</StackLayout>
-	</GridLayout>
+	</StackLayout>
 </Page>

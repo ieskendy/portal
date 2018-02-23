@@ -1,40 +1,43 @@
-.announcement-date {
+@import 'nativescript-theme-core/css/sky.css';
+.actionBar-title {
+	font-family: abel-regular;
+	text-transform: uppercase;
+	letter-spacing: .2;
+  	font-weight: bold;
+}
+.container {
 	margin: 5;
-	padding: 5,10,5,5;
+}
+.header {
+	padding: 15,0,15,0;
+	border-top-left-radius: 10;
+	border-top-right-radius: 10;
+	background-color: #30bcff;
+}
+.head-title {
+	text-transform: uppercase;
+	font-weight: bold;
 	text-align: center;
-	font-weight: bold;
-	border-right-width: 1;
-	border-right-color: white;
+	font-family: abel-regular;
 	color: #fff;
+	letter-spacing: .2;
 }
-.month {
-	font-size: 20;
-}
-.day {
-	font-size: 20;
-}
-.year {
-	font-size: 15;
-}
-.con {
-	color: white;
-	margin-top: 20;
-	margin-left: 10;
-}
-.announcement-title {
-	font-size: 20;
-}
-.postBy {
-	font-weight: bold;
-	margin-right: 3;
-}
-.announcement-info {
-	margin-top: 10;
-	border-top-width: 2;
-	border-top-color: #30bcff;
+.content {
+	padding: 5,0,5,5;
 	background-color: #fff;
 }
-.announcement-content {
-	padding: 15,20,15,20;
-	line-height: 4;
+.announcements {
+	padding: 10,5,10,5;
+}
+.announcements-date {
+	padding: 10,2,10,2;
+	/*background-color: #30bcff;*/
+	border-radius: 5;
+	background-color: rgb(63,101,240);
+	text-align: center;
+	color: #fff;
+}
+.announcements-title {
+	padding-left: 5;
+	padding-top: 10;
 }

@@ -125,7 +125,7 @@ function requestUpdateStudentInformation(data) {
 			alert('Successfully updated');
 			storageService.update('student', response);
 		}
-	}, () => {
+	}, (noConnection) => {
 		alert('Unable to connect. Please check your internet connection!');
         loader.hide();
         topmost().navigate("tabs/tabs-page");

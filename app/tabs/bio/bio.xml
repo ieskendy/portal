@@ -4,24 +4,20 @@
 	>
 	<page.ActionBar>
 		<ActionBar class="action-bar">
-			<NavigationButton android.systemIcon="ic_menu_back" tap="goBack"/>
-			<StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left">
-				<Label class="project-title" text="LVCC | Profile" textWrap="true"/>
+			<NavigationButton ios.systemIcon="8" android.systemIcon="ic_menu_back" ios.position="left" tap="goBack"/>
+			<StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="center">
+				<Label class="actionBar-title" text="Personal Information" textWrap="true"/>
 			</StackLayout>
-		</ActionBar>
+ 		</ActionBar>
 	</page.ActionBar>
-	<ScrollView>
-		<GridLayout columns="*" rows="*">
-			<StackLayout class="layout" col="0" row="0">
-				<StackLayout class="inputField">
-					<StackLayout>
-						<GridLayout rows="auto" class="head">
-							<StackLayout row="0" col="1">
-								<Label text="Personal Information" class="title" textWrap="true"/>
-							</StackLayout>
-						</GridLayout>
-	            	</StackLayout>
-	            	<StackLayout class="error-message" visibility="{{ errors ? 'visible' : 'collapsed' }}">
+	<StackLayout class="container">
+		<ScrollView>
+			<StackLayout width="100%" height="100%">
+		    	<StackLayout class="header">
+		    		<Label class="head-title" text="Personal Information" textWrap="true"/>
+		    	</StackLayout>
+		    	<StackLayout class="bio-con">
+		    		<StackLayout class="error-message" visibility="{{ errors ? 'visible' : 'collapsed' }}">
 						<Repeater id="errors" class="list-group">
 	                        <Repeater.itemTemplate>
 								<StackLayout class="error-container">
@@ -30,57 +26,57 @@
 							</Repeater.itemTemplate>
 						</Repeater>
 					</StackLayout>
-					<StackLayout class="profile-info">
-						<GridLayout rows="auto, auto" columns="*,*,50">
-	            			<StackLayout row="0" colSpan="2">
-	            				<Label  text="Email Address:" class="textField-name" textWrap="true"/>
-	            			</StackLayout>
-	            			<StackLayout row="1" colSpan="2">
-			            		<TextField id="email" text="{{ student.email }}" autocorrect="false"/>
-	            			</StackLayout>
-	            			<StackLayout row="1" col="2">
-	            				<Label text="&#xf0e0;" class="fa font-awesome textField-icon"/>
-	            			</StackLayout>
-	            		</GridLayout>
-	            		<GridLayout rows="auto, auto" columns="*,*,50">
-	            			<StackLayout row="0" col="0">
-	            				<Label text="Contact No.:" class="textField-name" textWrap="true"/>
-	            			</StackLayout>
-	            			<StackLayout row="1" colSpan="2">
-			            		<TextField id="contact_number" text="{{ student.contact_number }}" autocorrect="false"/>
-	            			</StackLayout>
-	            			<StackLayout row="1" col="2">
-	            				<Label text="&#xf095;" class="fa font-awesome textField-icon"/>
-	            			</StackLayout>
-	            		</GridLayout>
-	            		<GridLayout rows="auto, auto" columns="*,*,50">
-	            			<StackLayout row="0" col="0">
-	            				<Label text="Address:" class="textField-name" textWrap="true"/>
-	            			</StackLayout>
-	            			<StackLayout row="1" colSpan="2">
-			            		<TextField id="address" text="{{ student.address }}" autocorrect="false"/>
-	            			</StackLayout>
-	            			<StackLayout row="1" col="2">
-	            				<Label text="&#xf2bc;" class="fa font-awesome textField-icon"/>
-	            			</StackLayout>
-	            		</GridLayout>
-	            		<GridLayout rows="auto, auto" columns="*,*,50">
-	            			<StackLayout row="0" col="0">
-	            				<Label text="Place Birth:" class="textField-name" textWrap="true"/>
-	            			</StackLayout>
-	            			<StackLayout row="1" colSpan="2">
-			            		<TextField id="place_birth" text="{{ student.place_birth }}" textWrap="true" autocorrect="false"/>
-	            			</StackLayout>
-	            			<StackLayout row="1" col="2">
-	            				<Label text="&#xf2bc;" class="fa font-awesome textField-icon"/>
-	            			</StackLayout>
-	            		</GridLayout>
-	            		<StackLayout>
+		    		<StackLayout width="100%" height="100%">
+			    		<StackLayout class="text-field">
+			    			<Label class="tag-name" text="Email Address:" textWrap="true"/>
+			    			<GridLayout columns="*,auto" rows="auto">
+			    				<StackLayout row="0" col="0">
+			    					<TextField id="email" text="{{ student.email }}" autocorrect="false" class="input-field"/>
+			    				</StackLayout>
+			    				<StackLayout row="0" col="1">
+			    					<Label text="&#xf0e0;" class="fa font-awesome textField-icon"/>
+			    				</StackLayout>
+			    			</GridLayout>
+			    		</StackLayout>
+			    		<StackLayout class="text-field">
+			    			<Label class="tag-name" text="Contact Number:" textWrap="true"/>
+			    			<GridLayout columns="*,auto" rows="auto">
+			    				<StackLayout row="0" col="0">
+			    					<TextField id="contact_number" text="{{ student.contact_number }}" autocorrect="false" class="input-field"/>
+			    				</StackLayout>
+			    				<StackLayout row="0" col="1">
+			    					<Label text="&#xf095;" class="fa font-awesome textField-icon"/>
+			    				</StackLayout>
+			    			</GridLayout>
+			    		</StackLayout>
+			    		<StackLayout class="text-field">
+			    			<Label class="tag-name" text="Address:" textWrap="true"/>
+			    			<GridLayout columns="*,auto" rows="auto">
+			    				<StackLayout row="0" col="0">
+			    					<TextField id="address" text="{{ student.address }}" autocorrect="false"/>
+			    				</StackLayout>
+			    				<StackLayout row="0" col="1">
+			    					<Label text="&#xf018;" class="fa font-awesome textField-icon"/>
+			    				</StackLayout>
+			    			</GridLayout>
+			    		</StackLayout>
+			    		<StackLayout class="text-field">
+			    			<Label class="tag-name" text="Place of Birth:" textWrap="true"/>
+			    			<GridLayout columns="*,auto" rows="auto">
+			    				<StackLayout row="0" col="0">
+			    					<TextField id="place_birth" text="{{ student.place_birth }}" textWrap="true" autocorrect="false" class="input-field"/>
+			    				</StackLayout>
+			    				<StackLayout row="0" col="1">
+			    					<Label text="&#xf018;" class="fa font-awesome textField-icon"/>
+			    				</StackLayout>
+			    			</GridLayout>
+			    		</StackLayout>
+			    		<StackLayout>
 	            			<Button text="&#xf0c7; | Save" class="fa font-awesome save-btn" tap="updateStudentInformation"/>
 	            		</StackLayout>
-					</StackLayout>
-				</StackLayout>
+		    		</StackLayout>
+		    	</StackLayout>
 			</StackLayout>
-		</GridLayout>
-	</ScrollView>
+		</ScrollView>
+	</StackLayout>
 </Page>

@@ -9,7 +9,6 @@ export function onLoaded(args: EventData) {
     const component = <StackLayout>args.object;
 }
 
-
 export function isChangePersonalInformation() {
   console.log('Changing Personal Information');
   topmost().navigate("tabs/bio/bio");

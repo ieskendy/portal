@@ -38,6 +38,7 @@ export function pageLoaded(args: EventData) {
     });
     requestAcademicYears();
     pageObservable.set('academic_year', academic_year);
+    pageObservable.set('student', studentData);
     page.bindingContext = pageObservable;
 };
 
@@ -75,7 +76,7 @@ function requestAcademicYears() {
     httpService.get({uri: `/students/${studentData.student_id}/semesters`}, (response) => {
         if (response.error) {
             alert('Something went wrong! Please try again or check your connection');
-            topmost().navigate("views/home/home");
+            topmost().navigate("tabs/home/home");
             loader.hide();
         } else {
             let semesters = response;
@@ -90,10 +91,10 @@ function requestAcademicYears() {
                 loader.hide();
             }
         }
-    }, () => {
+    }, (noConnection) => {
         alert('Unable to connect. Please check your internet connection!');
         loader.hide();
-        topmost().navigate("views/home/home");
+        topmost().navigate("tabs/tabs-page");
     });
 }
 
@@ -129,10 +130,10 @@ function requestStudentPayments (academic_year: any) {
                loadPayments(payments);
            }
         }
-    }, () => {
+    }, (noConnection) => {
         alert('Unable to connect. Please check your internet connection!');
         loader.hide();
-        topmost().navigate("views/home/home");
+        topmost().navigate("tabs/tabs-page");
     });
 }
 

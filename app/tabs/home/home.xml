@@ -1,29 +1,96 @@
-<!--
-This is the component view that represents the 'Home' tab.
-Feel free to customize layouts and components to change how the tab view looks.
--->
-<GridLayout columns="*" rows="*" class="page-content" loaded="onLoaded">
-  <StackLayout class="container" col="0" row="0">
-      <StackLayout>
-        <Label text="LVCC Announcements" class="head-title" textWrap="true"/>
-      </StackLayout>
-      <GridLayout rows="*" class="announcements-container" >
-        <ListView id="announcements">
-            <ListView.itemTemplate>
-              <StackLayout>
-                <StackLayout class="announcements"  tap="showAnnouncement">
-                  <GridLayout columns="115,*" rows="auto">
-                    <StackLayout row="0" col="0">
-                      <Label text="{{ date }}" backgroundColor="{{ color }}" class="announcements-date" textWrap="true"/>
-                    </StackLayout>
-                    <StackLayout row="0" col="1">
-                      <Label text="{{ title }}" class="announcements-title" textWrap="true"/>
-                    </StackLayout>
-                  </GridLayout>
-                </StackLayout>
-              </StackLayout>
-            </ListView.itemTemplate>
-        </ListView>
-      </GridLayout>
-  </StackLayout>
+<GridLayout class="page-content" loaded="onLoaded">
+	<ScrollView>
+	    <StackLayout>
+	    	<StackLayout class="user-info">
+	    		<GridLayout rows="auto" columns="145,*">
+	    			<StackLayout row="0" col="0">
+	    				<StackLayout>
+		    				<Image class="user-img" src="~/img/user1.jpg" horizontalAlignment="center"/>
+		    			</StackLayout>
+		    			<StackLayout>
+		    				<Label class="font-awesome info" text="{{ '&#xf198;' + ' ' + student.student_number }}" textWrap="true"/>
+		    			</StackLayout>
+	    			</StackLayout>
+	    			<StackLayout row="0" col="1">
+	    				<StackLayout class="right-info-con">
+		    				<StackLayout class="info-right">
+		    					<GridLayout columns="auto,*" rows="auto">
+		    						<StackLayout row="0" col="0">
+					    				<Label class="font-awesome info-icon" text="&#xf007;" textWrap="true"/>
+		    						</StackLayout>
+		    						<StackLayout  row="0" col="1">
+		    							<Label class="stud-info" text="{{ student.student_name }}" textWrap="true"/>
+		    						</StackLayout>
+		    					</GridLayout>
+			    			</StackLayout>
+			    			<StackLayout class="info-right">
+			    				<GridLayout columns="auto,*" rows="auto">
+		    						<StackLayout row="0" col="0">
+					    				<Label class="font-awesome info-icon" text="&#xf003;" textWrap="true"/>
+		    						</StackLayout>
+		    						<StackLayout  row="0" col="1">
+		    							<Label class="stud-info" text="{{ student.email }}" textWrap="true"/>
+		    						</StackLayout>
+		    					</GridLayout>
+			    			</StackLayout>
+			    			<StackLayout class="info-right">
+		    					<GridLayout columns="auto,*" rows="auto">
+		    						<StackLayout row="0" col="0">
+					    				<Label class="font-awesome info-icon" text="&#xf02d;" textWrap="true"/>
+		    						</StackLayout>
+		    						<StackLayout  row="0" col="1">
+		    							<Label class="stud-info" text="{{ student.program_title }}" textWrap="true"/>
+		    						</StackLayout>
+		    					</GridLayout>
+			    			</StackLayout>
+			    			<StackLayout class="info-right">
+			    				<GridLayout columns="auto,*" rows="auto">
+		    						<StackLayout row="0" col="0">
+					    				<Label class="font-awesome info-icon" text="&#xf098;" textWrap="true"/>
+		    						</StackLayout>
+		    						<StackLayout  row="0" col="1">
+		    							<Label class="stud-info" text="{{ student.contact_number }}" textWrap="true"/>
+		    						</StackLayout>
+		    					</GridLayout>
+			    			</StackLayout>
+			    			<StackLayout class="info-right">
+			    				<GridLayout columns="auto,*" rows="auto">
+		    						<StackLayout row="0" col="0">
+					    				<Label class="font-awesome info-icon" text="&#xf10c;" textWrap="true"/>
+		    						</StackLayout>
+		    						<StackLayout  row="0" col="1">
+		    							<Label class="stud-info" text="{{ student.scholarship_status + ' ' + 'Scholar'}}" textWrap="true"/>
+		    						</StackLayout>
+		    					</GridLayout>
+			    			</StackLayout>
+	    				</StackLayout>
+	    			</StackLayout>
+				</GridLayout>
+	    	</StackLayout>
+	    	<StackLayout>
+	    		<StackLayout class="nav-buttons">
+	    			<GridLayout columns="*,*" rows="auto">
+	    				<StackLayout row="0" col="0" class="navigation-button grades" tap="grades">
+	    					<Label text="&#xf02d;" class="fa font-awesome home-icon"/>
+	                    	<Label text="Grades" class="nav-title" textWrap="true"/>
+	    				</StackLayout>
+	    				<StackLayout row="0" col="1" class="navigation-button sched" tap="schedule">
+	    					<Label text="&#xf073;" class="fa font-awesome home-icon"/>
+		                    <Label text="Course & Schedule" class="nav-title" textWrap="true"/>
+	    				</StackLayout>
+	    			</GridLayout>
+	    			<GridLayout columns="*,*" rows="auto">
+	    				<StackLayout row="0" col="0" class="navigation-button request" tap="document">
+	      					<Label text="&#xf298;" class="fa font-awesome home-icon" />
+	                    	<Label text="Student Request (Documents)" class="nav-title" textWrap="true"/>
+	    				</StackLayout>
+					    <StackLayout row="0" col="1" class="navigation-button misc" tap="fees">
+					      	<Label text="&#xf0d6;" class="fa font-awesome home-icon" />
+					        <Label text="Stuudent Ledger" textWrap="true" class="nav-title" />
+					    </StackLayout>
+	    			</GridLayout>
+	    		</StackLayout>
+	    	</StackLayout>
+	    </StackLayout>
+	</ScrollView>
 </GridLayout>

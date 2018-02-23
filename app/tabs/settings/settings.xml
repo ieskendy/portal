@@ -1,54 +1,50 @@
-<!--
-This is the component view that represents the 'Search' tab.
-Feel free to customize layouts and components to change how the tab view looks.
--->
-  <GridLayout class="page-content" colums="*" rows="*" loaded="onLoaded">
-      <StackLayout class="layout" col="0" row="0">
-        <StackLayout class="navigation-profile">
-          <StackLayout>
-            <StackLayout class="settingContainer">
-              <Label text="Settings" textWrap="true" class="setting-text"/>
-              <Label text="Edit your Information & Personal Account" textWrap="true" class="setting-caption"/>
-            </StackLayout>
-            <StackLayout class="nav-container">
-              <GridLayout rows="auto" columns="*,auto">
-                <StackLayout row="0" col="0">
-                  <Label text="Personal Information" textWrap="true" class="field-text"/>
-                </StackLayout>
-                <StackLayout row="0" col="1">
-                  <Label text="Edit" textWrap="true" class="editBtn" tap="isChangePersonalInformation"/>
-                </StackLayout>
-              </GridLayout>
-            </StackLayout>
-            <StackLayout class="nav-container">
-              <GridLayout rows="auto" columns="*,auto">
-                <StackLayout row="0" col="0">
-                  <Label text="Password" textWrap="true" class="field-text"/>
-                </StackLayout>
-                <StackLayout row="0" col="1">
-                  <Label text="Edit" textWrap="true" class="editBtn" tap="isChangePassword"/>
-                </StackLayout>
-              </GridLayout>
-            </StackLayout>
-            <StackLayout class="nav-container">
-              <GridLayout rows="auto" columns="*,auto">
-                <StackLayout row="0" col="0">
-                  <Label text="Username" textWrap="true" class="field-text"/>
-                  <Label text="{{ student.username }}" textWrap="true" class="field-data"/>
-                </StackLayout>
-                <StackLayout row="0" col="1">
-                  <Label text="Edit" textWrap="true" class="editBtn" tap="isChangeUsername"/>
-                </StackLayout>
-              </GridLayout>
-            </StackLayout>
-            <StackLayout class="nav-container">
-              <GridLayout rows="auto" columns="*,auto">
-                <StackLayout row="0" col="0" tap="doLogout">
-                  <Label text="Sign out" textWrap="true" class="field-text"/>
-                </StackLayout>
-              </GridLayout>
-            </StackLayout>
-          </StackLayout>
-        </StackLayout>
-      </StackLayout>
-  </GridLayout>
+<GridLayout class="page-content" colums="*" rows="*" loaded="onLoaded">
+	<StackLayout class="container">
+    	<StackLayout>
+	    	<StackLayout class="header">
+	    		<Label class="head-title" text="Settings" textWrap="true"/>
+	    		<Label class="setting-caption" text="Edit your Information & Personal Account" textWrap="true"/>
+	    	</StackLayout>
+	        <StackLayout class="navigationProfile"  height="100%" width="100%">
+	        	<StackLayout class="nav-container">
+	              	<GridLayout rows="auto" columns="*,auto">
+	                	<StackLayout row="0" col="0">
+	                  		<Label text="&#xf05a; Personal Information" textWrap="true" class="field-text font-awesome"/>
+	                	</StackLayout>
+	                	<StackLayout row="0" col="1">
+	                  		<Label text="Edit" textWrap="true" class="editBtn" tap="isChangePersonalInformation"/>
+	                	</StackLayout>
+	              	</GridLayout>
+	            </StackLayout>
+	            <StackLayout class="nav-container">
+		            <GridLayout rows="auto" columns="*,auto">
+		                <StackLayout row="0" col="0">
+		              	    <Label text="&#xf023; Password" textWrap="true" class="field-text font-awesome"/>
+		                </StackLayout>
+		                <StackLayout row="0" col="1">
+		                  	<Label text="Edit" textWrap="true" class="editBtn" tap="isChangePassword"/>
+		                </StackLayout>
+		            </GridLayout>
+		        </StackLayout>
+		        <StackLayout class="nav-container">
+		            <GridLayout rows="auto" columns="*,auto">
+		                <StackLayout row="0" col="0">
+		                  	<Label text="&#xf007; Username" textWrap="true" class="field-text font-awesome"/>
+		                  	<Label text="{{ student.username }}" textWrap="true" class="field-data"/>
+		                </StackLayout>
+		                <StackLayout row="0" col="1">
+		                  	<Label text="Edit" textWrap="true" class="editBtn" tap="isChangeUsername"/>
+		                </StackLayout>
+		            </GridLayout>
+				</StackLayout>
+				<StackLayout class="nav-container">
+		            <GridLayout rows="auto" columns="*,auto">
+		                <StackLayout row="0" col="0" tap="doLogout">
+		                  	<Label text="&#xf08b; Sign Out" textWrap="true" class="field-text font-awesome"/>
+		                </StackLayout>
+		            </GridLayout>
+				</StackLayout>
+	        </StackLayout>
+    	</StackLayout>
+	</StackLayout>
+</GridLayout>

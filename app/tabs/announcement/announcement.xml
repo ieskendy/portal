@@ -1,39 +1,25 @@
-<Page class="page app-page"
-	xmlns="http://schemas.nativescript.org/tns.xsd"
-	loaded="pageLoaded"
-	>
-	<page.ActionBar>
-		<ActionBar class="action-bar">
-			<NavigationButton android.systemIcon="ic_menu_back" tap="redirectBack"/>
-			<StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left">
-				<Label class="project-title" text="LVCC | Announcements" textWrap="true"/>
-			</StackLayout>
-		</ActionBar>
-	</page.ActionBar>
-
-	<GridLayout columns="*" rows="*">
-    <StackLayout class="layout" col="0" row="0">
-		   <StackLayout>
-					<GridLayout columns="auto,*" backgroundColor="{{ announcement.color }}" rows="auto,auto,auto">
-          		<StackLayout class="announcement-date"  row="0" col="0">
-          			<Label text="{{ announcement.month }}" class="month" textWrap="true"/>
-          			<Label text="{{ announcement.day }}" class="day" textWrap="true"/>
-          			<Label text="{{ announcement.year }}" class="year" textWrap="true"/>
-          		</StackLayout>
-          		<StackLayout row="0" col="1" class="con">
-          			<Label text="{{ announcement.title }} " class="announcement-title" textWrap="true"/>
-          			<GridLayout columns="auto,*" rows="auto">
-          				<Label text="Posted by:" class="postBy" textWrap="true" row="0" col="0"/>
-          				<Label text="{{ announcement.posted_by }}" class="poster" textWrap="true" row="0" col="1"/>
-          			</GridLayout>
-          		</StackLayout>
-          	</GridLayout>
-          	<StackLayout class="announcement-info">
-            	<StackLayout>
-            		<Label text="{{ announcement.description }}" class="announcement-content" textWrap="true"/>
-            	</StackLayout>
-          	</StackLayout>
-				</StackLayout>
-	   </StackLayout>
-	</GridLayout>
-</Page>
+<GridLayout class="page-content" loaded="onLoaded">
+    <StackLayout class="container">
+      <StackLayout class="header">
+        <Label class="head-title" text="Lvcc Announcements" textWrap="true"/>
+      </StackLayout>
+      <StackLayout class="content" height="100%" width="100%">
+        <ListView id="announcements">
+              <ListView.itemTemplate>
+                  <StackLayout tap="showAnnouncement">
+                    <StackLayout class="announcements">
+                        <GridLayout columns="110,*" rows="auto">
+                          <StackLayout row="0" col="0">
+                              <Label text="{{ date }}" class="announcements-date" textWrap="true" backgroundColor="{{ color }}"/>
+                          </StackLayout>
+                          <StackLayout row="0" col="1">
+                              <Label text="{{ title }}" class="announcements-title" textWrap="true"/>
+                          </StackLayout>
+                        </GridLayout>
+                    </StackLayout>
+                  </StackLayout>
+              </ListView.itemTemplate>
+          </ListView>
+      </StackLayout>
+    </StackLayout>
+</GridLayout>

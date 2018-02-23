@@ -35,6 +35,7 @@ export function pageLoaded(args: EventData) {
 	});
     requestAcademicYears();
     pageObservable.set('academic_year', academic_year);
+    pageObservable.set('student', studentData);
     page.bindingContext = pageObservable;
 };
 
@@ -42,9 +43,10 @@ export function onChange () {
 	pageObservable.set('academic_year', true);
 }
 
-
 export function goBack() {
 	topmost().goBack();
+	
+	// topmost().navigate('tabs/tabs-page');
 }
 
 export function submitAcademicYear(args: SelectedIndexChangedEventData) {
@@ -95,7 +97,7 @@ function requestGrades(academic_year) {
 	}, () => {
 		loader.hide();
 		alert('Unable to connect. Please check your connection');
-		topmost().navigate('views/home/home');
+		topmost().navigate('tabs/tabs-page');
 	});
 }
 
@@ -132,7 +134,7 @@ function requestAcademicYears() {
 	}, (noConnection) => {
 		loader.hide();
 		alert('Unable to connect. Please check your connection');
-		topmost().navigate('views/home/home');
+		topmost().navigate('tabs/tabs-page');
 	});
 }
 

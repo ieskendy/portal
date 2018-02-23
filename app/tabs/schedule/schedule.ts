@@ -114,7 +114,7 @@ function requestSections() {
     httpService.get({uri: `/sections/programs/${studentData.program_id}`}, (response) => {
         if (response.error) {
             alert('Something went wrong! Please try again');
-            topmost().navigate('views/home/home');
+            topmost().navigate('tabs/tabs-page');
         } else {
             let sections = response;
             if(sectionList.length == 0) {
@@ -128,10 +128,10 @@ function requestSections() {
                loader.hide();
             }
         }
-    }, () => {
+    }, (noConnection) => {
         alert('Unable to connect. Please check your internet connection!');
         loader.hide();
-        topmost().navigate("views/home/home");
+        topmost().navigate("tabs/tabs-page");
     });
 }
 
@@ -167,10 +167,10 @@ function requestSchedules(section: any, day: any) {
                 pageObservable.set('day',day);
             }
         }
-    }, () => {
+    }, (noConnection) => {
         alert('Unable to connect. Please check your internet connection!');
         loader.hide();
-        topmost().navigate("views/home/home");
+        topmost().navigate("tabs/tabs-page");
     });
 }
 

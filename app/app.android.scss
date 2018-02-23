@@ -10,139 +10,20 @@
 
 // Place any CSS rules you want to apply only on Android here
 /*@import 'nativescript-theme-core/css/core.light.css';*/
-@import '~/nativescript-theme-core/css/sky.css';
+// @import '~/nativescript-theme-core/css/sky.css';
+@import 'nativescript-theme-core/css/sky.css';
+
 .page {
 	background-image: url("res://bg");
 	background-repeat: no-repeat;
 	background-size: cover;
 }
-
-.ctr {
-	text-align: center;
-}
-
 .font-awesome {
-	font-family: fontawesome-webfont;
+	font-family: FontAwesome;
 }
-
-.project-title {
+.actionBar-title {
 	font-family: abel-regular;
 	text-transform: uppercase;
 	letter-spacing: .2;
-  	font-size: 15;
   	font-weight: bold;
-}
-.button {
-	margin-top: 10;
-	margin-bottom: 10;
-	padding-top: 5;
-	padding-bottom: 5;
-	width: 60%;
-	background-color: #30bcff;
-	color: #fff;
-	font-size: 12pt;
-}
-.layout {
-	margin: 5;
-	padding: 10,5,10,5;
-	background-color: rgb(250,250,250);
-}
-/* sidebar */
-.sidedrawer-right {
-	background-color: #30bcff;
-}
-.sidedrawer-header{
-	margin-top: 3;
-	height: 250;
-	background-color: #2575a2;
-}
-.sidedrawer-content {
-	margin: 30,30,0,30;
-}
-.sidedrawer-icon {
-	padding: 5;
-	font-size: 15;
-	color: #fff;
-}
-.sidedrawer-nav-name{
-	padding-top: 3;
-	padding-left: 5;
-	color: #fff;
-}
-.sidedrawer-buttons{
-	margin-bottom: 5;
-	padding-top: 4;
-	padding-bottom: 3; 
-	border-top-width: 1;
-	border-color: #fff;
-}
-.user-img {
-	margin-top: 30;
-	margin-bottom: 20;
-	border-radius: 200;
-	border-width: 2;
-	border-color: #fff;
-	height: 120;
-	width: 120;
-}
-.stud-info {
-	text-align: center;
-	color: #fff;
-}
-.idNumber {
-	letter-spacing: .1;
-}
-.username {
-	letter-spacing: .1;
-	font-size: 15;
-}
-.course {
-	text-transform: uppercase;
-	letter-spacing: .1;
-}
-.head-title {
-	padding: 20,0,20,0;
-	border-top-left-radius: 15;
-	border-top-right-radius: 15;
-	font-family: abel-regular;
-	background-color: #30bcff;
-	letter-spacing: .1;
-	text-align: center;
-	font-weight: bold;
-	font-size: 20;
-	color: #fff;
-}
-
-/* DropDown */
-.dd-container {
-	background-color: #fff;
-	margin:50,10,10,10;
-	border-radius: 15;
-	min-height: 200;
-}
-.drop-down {
-	margin-top: 15; 
-	padding: 5;
-	width: 80%;
-	border-width: 1;
-	border-radius: 2;
-}
-.dd-button {
-	margin-top: 30;
-	margin-bottom: 10;
-	padding-top: 10;
-	padding-bottom: 10;
-	width: 50%;
-	background-color: #30bcff;
-	color: #fff;
-}
-
-DropDown {
-	text-align: center;
-	padding-top: 10px;
-}
-
-.information {
-	margin-top: 15;
-	text-align: center;
 }

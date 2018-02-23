@@ -74,7 +74,7 @@ function requestChangeUsername(data) {
 			alert('Your username is successfully updated');
 			loader.hide();	
 		}
-	}, () => {
+	}, (noConnection) => {
 		alert('Unable to connect. Please check your internet connection!');
         loader.hide();
         topmost().navigate("tabs/tabs-page ");

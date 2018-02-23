@@ -1,66 +1,62 @@
 <Page loaded="pageLoaded"
+	xmlns="http://schemas.nativescript.org/tns.xsd"
 	class="page">
 	<page.ActionBar>
 		<ActionBar class="action-bar">
 			<StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="center">
-				<Label class="project-title font-awesome" text="La Verdad Student Portal" textWrap="true"/>
+				<Label class="actionBar-title" text="La Verdad Student Portal" textWrap="true"/>
 			</StackLayout>
  		</ActionBar>
 	</page.ActionBar>
 	<ScrollView>
-		<GridLayout columns="*" rows="*">
-			<StackLayout class="container" row="0" col="0">
+		<StackLayout class="container">
+			<StackLayout class="lvcc">
 				<StackLayout class="school">
-					<Image src="res://icon" stretch="none" horizontalAlignment="center" class="logo"/>
-					<Label text="La Verdad Christian College" class="lv-name" textWrap="true"/>
-					<Label text="McArthur Highway Sampaloc Apalit, Pampanga" class="lv-add" textWrap="true"/>
-				</StackLayout>
-				<StackLayout class="form">
-					<StackLayout  class="error-message" visibility="{{ errors ? 'visible' : 'collapsed' }}">
-						<Repeater items="{{ errors }}">
-							<Repeater.itemTemplate>
-								<StackLayout class="error-container">
-									<Label class="message" text="{{ title }}" />
-								</StackLayout>
-							</Repeater.itemTemplate>
-						</Repeater>
-					</StackLayout>
-					<StackLayout>
-						<Label text="Sign In" class="signin-text" textWrap="true"/>
-					</StackLayout>
-					<StackLayout class="login-form">
-						<StackLayout class="form-textField">
-							<GridLayout columns="*,auto" rows="auto">
-								<TextField
-									autocorrect="false"
-									hint="Username"
-									textWrap="true"
-									text="{{ username }}"
-									row="0"
-									col="0"/>
-								<Label text="&#xf007;" class="font-awesome form-icon fa" row="0" col="1"/>
-							</GridLayout>
-						</StackLayout>
-						<StackLayout class="form-textField">
-							<GridLayout columns="*,auto" rows="auto">
-								<TextField
-									autocorrect="false"
-									hint="Password"
-									hintColor="#111" secure="true"
-									autocorrect="false"
-									textWrap="true"
-									text="{{ password }}"
-									row="0"
-									col="0"/>
-								<Label text="&#xf084;" class="font-awesome form-icon fa" row="0" col="1"/>
-							</GridLayout>
-						</StackLayout>
-						<StackLayout>
-							<Button tap="doLogin" text="&#xf090; | Sign In" class="fa font-awesome button"/>
-						</StackLayout>
-					</StackLayout>
+					<Image class="school-logo" src="res://icon" stretch="none" horizontalAlignment="center" />
+					<Label class="school-name" text="La Verdad Christian College" textWrap="true"/>
+					<Label class="school-add" text="McArthur Highway Apalit, Pampanga" textWrap="true"/>
 				</StackLayout>
 			</StackLayout>
-		</GridLayout>
+			<StackLayout class="input-form">
+				<StackLayout  class="error-message" visibility="{{ errors ? 'visible' : 'collapsed' }}">
+					<Repeater items="{{ errors }}">
+						<Repeater.itemTemplate>
+							<StackLayout class="error-container">
+								<Label class="message" text="{{ title }}" />
+							</StackLayout>
+						</Repeater.itemTemplate>
+					</Repeater>
+				</StackLayout>
+				<StackLayout class="form-textField">
+					<GridLayout columns="*,auto" rows="auto">
+						<TextField
+							autocorrect="false"
+							hint="Username"
+							textWrap="true"
+							text="{{ username }}"
+							row="0"
+							col="0"/>
+						<Label text="&#xf007;" class="font-awesome form-icon fa" row="0" col="1"/>
+					</GridLayout>
+				</StackLayout>
+				<StackLayout class="form-textField">
+					<GridLayout columns="*,auto" rows="auto">
+						<TextField
+							autocorrect="false"
+							hint="Password"
+							secure="true"
+							autocorrect="false"
+							textWrap="true"
+							text="{{ password }}"
+							row="0"
+							col="0"/>
+						<Label text="&#xf023;" class="font-awesome form-icon fa" row="0" col="1"/>
+					</GridLayout>
+				</StackLayout>
+				<StackLayout>
+					<Button tap="doLogin" text="&#xf090; | Sign In" class="fa font-awesome loginBtn"/>
+				</StackLayout>
+			</StackLayout>
+		</StackLayout>
 	</ScrollView>
 </Page>

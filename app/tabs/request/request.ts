@@ -67,10 +67,10 @@ function fetchStudentRequest() {
                loader.hide();
             }   
         }
-    }, () => {
+    }, (noConnection) => {
         alert('Unable to connect. Please check your internet connection!');
         loader.hide();
-        topmost().navigate("views/home/home");
+        topmost().navigate("tabs/tabs-page");
     });
 }
 

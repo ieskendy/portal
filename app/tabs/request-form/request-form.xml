@@ -5,20 +5,20 @@
 	>
 	<page.ActionBar>
 		<ActionBar class="action-bar">
-			<NavigationButton android.systemIcon="ic_menu_back" tap="goBack"/>
-			<StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left">
-				<Label class="project-title" text="LVCC | Document Requests" textWrap="true"/>
+			<NavigationButton ios.systemIcon="8" android.systemIcon="ic_menu_back" ios.position="left" tap="goBack"/>
+			<StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="center">
+				<Label class="actionBar-title" text="Student Requests" textWrap="true"/>
 			</StackLayout>
-		</ActionBar>
+ 		</ActionBar>
 	</page.ActionBar>
-	<ScrollView>
-		<GridLayout rows="*" columns="*">
-			<StackLayout col="0" row="0" class="layout">
-				<StackLayout>
-        			<StackLayout>
-	            		<Label text="Request Form" class="head-title" textWrap="true"/>
-	            	</StackLayout>
-        			<StackLayout class="error-message" visibility="{{ errors ? 'visible' : 'collapsed' }}">
+	<StackLayout class="container">
+		<ScrollView>
+			<StackLayout width="100%" height="100%">
+		    	<StackLayout class="header">
+		    		<Label class="head-title" text="Request Document" textWrap="true"/>
+		    	</StackLayout>
+		    	<StackLayout class="requestForm-con">
+		    		<StackLayout class="error-message" visibility="{{ errors ? 'visible' : 'collapsed' }}">
 						<ListView id="errors" class="list-group">
                             <ListView.itemTemplate>
                                 <StackLayout class="error-container">
@@ -27,30 +27,31 @@
                             </ListView.itemTemplate>
                         </ListView>
 					</StackLayout>
-        			<StackLayout class="textField-con">
-        				<StackLayout>
-	            			<Label text="Document Type:" class="textField-name" textWrap="true"/>
-        				</StackLayout>
-                        <StackLayout class="dropdown">
-                            <dd:DropDown
-                            			items="{{ documents }}"
-                            			selectedIndex="{{ selectedIndex }}"
-	                                    opened="dropDownOpened"
-	                                    closed="dropDownClosed"
-	                                    selectedIndexChanged="dropDownSelectedIndexChanged"/>
-                        </StackLayout>
-            			<StackLayout>
-            				<Label text="Purpose:" class="textField-name" style.paddingBottom="10" textWrap="true"/>
-            			</StackLayout>
-            			<StackLayout >
-		            		<TextField text="{{ purpose }}" class="purpose" textWrap="true"/>
-            			</StackLayout>
-	            		<StackLayout>
-	            			<Button text="Submit | &#xf1d9;" class="fa font-awesome button" tap="submitRequest"/>
+		    		<StackLayout width="100%" height="100%">
+			    		<StackLayout class="text-field">
+			    			<Label class="tag-name" text="Document Type:" textWrap="true"/>
+			    			<StackLayout class="dropdown">
+	                            <dd:DropDown 
+                        			items="{{ documents }}" 
+                        			selectedIndex="{{ selectedIndex }}"
+                                    opened="dropDownOpened" 
+                                    closed="dropDownClosed"
+                                    selectedIndexChanged="dropDownSelectedIndexChanged"
+                                    class="dropdown-data"/>
+	                        </StackLayout>
+			    		</StackLayout>
+			    		<StackLayout class="text-field">
+			    			<Label class="tag-name" text="Purpose:" textWrap="true"/>
+			    			<StackLayout >
+			            		<TextField text="{{ purpose }}" class="purpose" textWrap="true"/>
+	            			</StackLayout>
+			    		</StackLayout>
+			    		<StackLayout>
+	            			<Button text="Submit" class="fa font-awesome submitBtn" tap="submitRequest"/>
 	            		</StackLayout>
-                    </StackLayout>
-				</StackLayout>
+		    		</StackLayout>
+		    	</StackLayout>
 			</StackLayout>
-		</GridLayout>
-	</ScrollView>
+		</ScrollView>
+	</StackLayout>	
 </Page>

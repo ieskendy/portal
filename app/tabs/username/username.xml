@@ -4,52 +4,46 @@
 	>
 	<page.ActionBar>
 		<ActionBar class="action-bar">
-			<NavigationButton android.systemIcon="ic_menu_back" tap="goBack"/>
-			<StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left">
-				<Label class="project-title" text="LVCC | Profile" textWrap="true"/>
+			<NavigationButton ios.systemIcon="8" android.systemIcon="ic_menu_back" ios.position="left" tap="goBack"/>
+			<StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="center">
+				<Label class="actionBar-title" text="Username" textWrap="true"/>
 			</StackLayout>
-		</ActionBar>
+ 		</ActionBar>
 	</page.ActionBar>
-	<ScrollView>
-		<GridLayout columns="*" rows="*">
-			<StackLayout class="layout" col="0" row="0">
-				<StackLayout class="inputField">
-					<StackLayout>
-						<GridLayout rows="auto" class="head">
-							<StackLayout row="0" col="1">
-								<Label text="Change Username" class="title" textWrap="true"/>
-							</StackLayout>
-						</GridLayout>
-	            	</StackLayout>
-					<StackLayout class="profile-info">
-						<StackLayout class="error-message" visibility="{{ errors ? 'visible' : 'collapsed' }}">
-							<Repeater id="errors" class="list-group">
-		                        <Repeater.itemTemplate>
-									<StackLayout class="error-container">
-										<Label class="message" text="{{ title }}" textWrap="true"/>
-									</StackLayout>
-								</Repeater.itemTemplate>
-							</Repeater>
-						</StackLayout>
-						<StackLayout>
-							<GridLayout rows="auto, auto" columns="*,*,50">
-								<StackLayout row="0" col="0">
-									<Label text="Username:" class="textField-name" textWrap="true"/>
+	<StackLayout class="container">
+		<ScrollView>
+			<StackLayout width="100%" height="100%">
+		    	<StackLayout class="header">
+		    		<Label class="head-title" text="Edit Username" textWrap="true"/>
+		    	</StackLayout>
+		    	<StackLayout class="username-con">
+		    		<StackLayout class="error-message" visibility="{{ errors ? 'visible' : 'collapsed' }}">
+						<Repeater id="errors" class="list-group">
+	                        <Repeater.itemTemplate>
+								<StackLayout class="error-container">
+									<Label class="message" text="{{ title }}" textWrap="true"/>
 								</StackLayout>
-								<StackLayout row="1" colSpan="2">
-									<TextField id="username" text="{{ student.username }}" autocorrect="false"/>
-								</StackLayout>
-								<StackLayout row="1" col="2">
-									<Label text="&#xf007;" class="fa font-awesome textField-icon"/>
-								</StackLayout>
-							</GridLayout>
-		            		<StackLayout>
-		            			<Button text="&#xf0c7; | Save" class="fa font-awesome save-btn" tap="changeUsername"/>
-		            		</StackLayout>
-						</StackLayout>
+							</Repeater.itemTemplate>
+						</Repeater>
 					</StackLayout>
-				</StackLayout>
+		    		<StackLayout width="100%" height="100%">
+			    		<StackLayout class="text-field">
+			    			<Label class="tag-name" text="Username:" textWrap="true"/>
+			    			<GridLayout columns="*,auto" rows="auto">
+			    				<StackLayout row="0" col="0">
+			    					<TextField id="username" text="{{ student.username }}" autocorrect="false"/>
+			    				</StackLayout>
+			    				<StackLayout row="0" col="1">
+			    					<Label text="&#xf007;" class="fa font-awesome textField-icon"/>
+			    				</StackLayout>
+			    			</GridLayout>
+			    		</StackLayout>
+			    		<StackLayout>
+	            			<Button text="&#xf0c7; | Save" class="fa font-awesome save-btn" tap="changeUsername"/>
+	            		</StackLayout>
+		    		</StackLayout>
+		    	</StackLayout>
 			</StackLayout>
-		</GridLayout>
-	</ScrollView>
+		</ScrollView>
+	</StackLayout>
 </Page>

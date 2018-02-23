@@ -1,1 +1,69 @@
-.announcements{margin-top:3;border-radius:5;padding:5,15,5,10;color:black}.announcements-date{padding:5,0,5,0;color:white;text-align:center}.announcements-title{padding:3,0,3,10}.container{margin:10;background-color:#eee}
+@import 'nativescript-theme-core/css/sky.css';
+.user-info {
+	padding:20,10,15,10;
+	border-bottom-width: 2;
+	border-color: #fff;
+	/*background-color:#2b94c6;*/
+	background-color: #30bcff;
+	color:#fff;
+}
+.user-img {
+	margin-bottom:10;
+	height:110;
+	width:110;
+	border-radius:100;
+	border-width:2;
+	border-color:#fff
+}
+.info-con {
+	margin-left:15;
+}
+.info {
+	text-align:center;
+	letter-spacing:.1;
+}
+.right-info-con {
+	margin-top:15;
+}
+.info-right {
+	padding-bottom:5;
+}
+.stud-info {
+	padding-left:5;
+	letter-spacing:.1;
+}
+.info-icon {
+	padding-right:5;
+	text-align:center;
+}
+.nav-buttons {
+	margin-top: 20;
+	text-align: center;
+	color: #fff;
+}
+.navigation-button {
+	margin: 3;
+	padding: 20, 0, 20, 0;
+	border-radius: 15;
+}
+.home-icon {
+	padding: 20,0;
+	font-size: 30;
+}
+.nav-title {
+	padding: 0,5,10,5;
+	font-size: 12;
+	font-weight: bold;
+}
+.sched {
+	background-color: rgb(53,143,66);
+}
+.grades {
+	background-color: rgb(63,101,240);
+}
+.request {
+	background-color: rgb(235,89,31);
+}
+.misc {
+	background-color: rgb(195,36,214);
+}
