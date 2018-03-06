@@ -17,9 +17,6 @@
 			<StackLayout class="request-con" width="100%" height="100%">
 				<ScrollView>
 					<StackLayout>
-						<StackLayout class="header">
-				    		<Label class="head-title" text="Request History" textWrap="true"/>
-				    	</StackLayout>
 				    	<StackLayout class="history-content" width="100%" height="100%">
 				    		<GridLayout columns="*,*,*" rows="auto">
 				    			<StackLayout row="0" col="0">

@@ -40,10 +40,10 @@
 				</StackLayout>
 			</StackLayout>
 		</ScrollView>
-		<StackLayout class="container">
-			<StackLayout width="100%" height="100%">
+		<GridLayout columns="*" rows="*">
+			<StackLayout col="0" row="0">
 				<StackLayout visibility="{{ academic_year ? 'collapsed' : 'visible' }}">
-					<StackLayout class="grades-con" width="100%" height="100%">
+					<StackLayout class="grades-con">
 						<ScrollView>
 							<StackLayout>
 								<StackLayout>
@@ -119,6 +119,6 @@
 					</StackLayout>
 				</StackLayout>
 			</StackLayout>
-		</StackLayout>
+		</GridLayout>
 	</StackLayout>
 </Page>

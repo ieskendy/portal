@@ -2,8 +2,7 @@
 	<StackLayout class="container">
     	<StackLayout>
 	    	<StackLayout class="header">
-	    		<Label class="head-title" text="Settings" textWrap="true"/>
-	    		<Label class="setting-caption" text="Edit your Information & Personal Account" textWrap="true"/>
+	    		<Label class="head-title" text="Edit your Information & Personal Account" textWrap="true"/>
 	    	</StackLayout>
 	        <StackLayout class="navigationProfile"  height="100%" width="100%">
 	        	<StackLayout class="nav-container">

@@ -13,9 +13,9 @@
 			</StackLayout>
  		</ActionBar>
 	</page.ActionBar>
-	<StackLayout>
+	<GridLayout columns="*" rows="*">
 		<ScrollView>
-			<StackLayout class="container">
+			<StackLayout class="container" row="0" col="0">
 					<StackLayout visibility="{{ academic_year ? 'visible' : 'collapsed' }}">
 						<StackLayout class="dropDown">
 							<StackLayout class="header">
@@ -40,7 +40,7 @@
 					</StackLayout>		
 			</StackLayout>
 		</ScrollView>
-		<StackLayout class="container">
+		<StackLayout>
 			<StackLayout width="100%" height="100%">
 				<StackLayout visibility="{{ academic_year ? 'collapsed' : 'visible' }}">
 					<StackLayout class="student-misc" width="100%" height="100%">
@@ -80,10 +80,10 @@
 						            			<Label text="Total Payment:" class="field-title" textWrap="true" />
 						            			<Label text="{{ 'PHP ' + total + '.00'}}" class="payment-result" textWrap="true"/>
 					                		</StackLayout>
-					                		<StackLayout row="0" col="1" class="">
+					                		<!-- <StackLayout row="0" col="1" class="">
 						            			<Label text="Balance:" class="field-title" textWrap="true" />
 						            			<Label text="PHP 1700.00" class="payment-result" textWrap="true"/>
-					                		</StackLayout>
+					                		</StackLayout> -->
 					        			</GridLayout>
 				        			</StackLayout>
 				            		<StackLayout>
@@ -121,5 +121,5 @@
 				</StackLayout>
 			</StackLayout>
 		</StackLayout>
-	</StackLayout>
+	</GridLayout>
 </Page>
