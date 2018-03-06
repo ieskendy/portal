@@ -18,7 +18,7 @@
                     <home:home/>
                 </TabViewItem.view>
             </TabViewItem>
-            <TabViewItem title="&#xf1ea; LVCC Bulitin" class="font-awesome">
+            <TabViewItem title="&#xf1ea; LVCC Bulletin" class="font-awesome">
                 <TabViewItem.view>
                     <announcement:announcement/>
                 </TabViewItem.view>
