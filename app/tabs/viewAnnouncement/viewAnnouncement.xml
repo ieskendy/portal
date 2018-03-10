@@ -10,7 +10,7 @@
 	</page.ActionBar>
 	<StackLayout class="container">
 		<StackLayout class="header" backgroundColor="{{ announcement.color }}">
-    		<Label class="announcementTitle" text="{{ announcement.title }}" textWrap="true"/>
+    		<Label class="announcementTitle" text="{{ announcement.title}}" textWrap="true"/>
     	</StackLayout>
 		<StackLayout class="contentCon">
 			<StackLayout class="con">
@@ -28,7 +28,7 @@
 					<StackLayout row="0" col="1" class="date">
 						<GridLayout columns="auto,auto" rows="auto">
 							<StackLayout row="0" col="0">
-								<Label class="label-bold" text="Post Date:" textWrap="true"/>
+								<Label class="label-bold" text="Date:" textWrap="true"/>
 							</StackLayout>
 							<StackLayout row="0" col="1">
 								<GridLayout columns="auto,auto,auto,auto" rows="auto">

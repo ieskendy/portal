@@ -36,6 +36,7 @@ exports.pageLoaded = function(args: EventData) {
             max: 100,
           },
     });
+    pageObservable.set('student', studentData);
     fetchStudentRequest();
     page.bindingContext = pageObservable;
 };

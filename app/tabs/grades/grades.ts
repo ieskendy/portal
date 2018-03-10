@@ -82,6 +82,7 @@ function requestGrades(academic_year) {
 			let grades = response;
 			if(gradesList.length == 0) {
    				loadGrades(grades);
+   				computeGeneralAverage(grades);
    				pageObservable.set('academic_year', false);
    			} else {
 				while(gradesList.length) {
@@ -162,4 +163,17 @@ function showErrors() {
             pageObservable.set('errors',null);
         }, 4000);
     }
+}
+
+
+
+function computeGeneralAverage(grades) {
+	let average = 0;
+	let generalaverage = 0;
+	grades.data.forEach((grade) => {
+		average += (parseFloat(grade.final_grade) * parseFloat(grade.midterm_grade) / 2)
+	});
+
+	generalaverage = average / gradesList.length;
+	pageObservable.set('generalAverage', generalaverage);
 }

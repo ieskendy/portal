@@ -1,7 +1,7 @@
 <GridLayout class="page-content" colums="*" rows="*" loaded="onLoaded">
 	<StackLayout class="container">
     	<StackLayout>
-	    	<StackLayout class="header">
+	    	<StackLayout class="header-settings">
 	    		<Label class="head-title" text="Edit your Information & Personal Account" textWrap="true"/>
 	    	</StackLayout>
 	        <StackLayout class="navigationProfile"  height="100%" width="100%">

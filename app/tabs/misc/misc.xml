@@ -40,15 +40,15 @@
 					</StackLayout>		
 			</StackLayout>
 		</ScrollView>
-		<StackLayout>
-			<StackLayout width="100%" height="100%">
+		<GridLayout columns="*" row="*">
+			<StackLayout col="0" row="0">
 				<StackLayout visibility="{{ academic_year ? 'collapsed' : 'visible' }}">
 					<StackLayout class="student-misc" width="100%" height="100%">
 						<ScrollView>
 							<StackLayout>
 								<StackLayout>
 									<StackLayout>
-										<Label text="2nd Semester 2018-2019" textWrap="true" class="sem-year"/>
+										<Label text="{{ semester }}" textWrap="true" class="sem-year"/>
 									</StackLayout>
 								</StackLayout>
 								<StackLayout class="info">
@@ -120,6 +120,6 @@
 					</StackLayout>
 				</StackLayout>
 			</StackLayout>
-		</StackLayout>
+		</GridLayout>
 	</GridLayout>
 </Page>
