@@ -41,6 +41,7 @@ export function changePassword()
 		    max: 100,
   		},
 	});
+
 	let data = {
 		newpassword: pageObservable.get('newpassword'),
 		oldpassword: pageObservable.get('oldpassword')
@@ -50,18 +51,21 @@ export function changePassword()
 		errors.push({
 			"title": "Old password field is required!"
 		});
+		loader.hide();
 	}
 	
 	if(!data.newpassword){
 		errors.push({
 			"title": "New password field is required!"
 		});
+		loader.hide();
 	}
 
 	if(!validatorService.len(data.newpassword, 7, 30)) {
 		errors.push({
 			"title": "Your password must be at least 7 characters long. Please try again!"
 		});
+		loader.hide();
 	}
 
 
@@ -70,7 +74,6 @@ export function changePassword()
 		requestChangePassword(data);
 	}
 	showErrors();
-	loader.hide();
 }
 
 function requestChangePassword(data) {

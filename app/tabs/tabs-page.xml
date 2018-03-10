@@ -13,19 +13,19 @@
 
     <TabView selectedIndexChanged="onSelectedIndexChanged">
         <TabView.items>
-            <TabViewItem title="&#xf015; Home" class="font-awesome">
+            <TabViewItem title="Home" class="font-awesome">
                 <TabViewItem.view>
                     <home:home/>
                 </TabViewItem.view>
             </TabViewItem>
-            <TabViewItem title="&#xf1ea; LVCC Bulletin" class="font-awesome">
+            <TabViewItem title="LVCC Bulletin" class="font-awesome">
                 <TabViewItem.view>
                     <announcement:announcement/>
                 </TabViewItem.view>
             </TabViewItem>
 
             
-            <TabViewItem title="&#xf013; Settings" class="font-awesome">
+            <TabViewItem title="Settings" class="font-awesome">
                 <TabViewItem.view>
                     <settings:settings/>
                 </TabViewItem.view>

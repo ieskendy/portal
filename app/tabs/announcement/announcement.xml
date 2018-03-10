@@ -1,7 +1,7 @@
 <GridLayout class="page-content" loaded="onLoaded">
     <StackLayout class="container">
         <StackLayout class="header">
-          <Label class="head-title" text="LVCC Announcements" textWrap="true"/>
+          <Label class="head-title font-awesome" text="&#xf1ea; LVCC Announcements" textWrap="true"/>
         </StackLayout>
       <StackLayout class="content" height="100%" width="100%">
         <ListView id="announcements">

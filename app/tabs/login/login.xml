@@ -8,55 +8,57 @@
 			</StackLayout>
  		</ActionBar>
 	</page.ActionBar>
-	<ScrollView>
-		<StackLayout class="container">
-			<StackLayout class="lvcc">
-				<StackLayout class="school">
-					<Image class="school-logo" src="res://icon" stretch="none" horizontalAlignment="center" />
-					<Label class="school-name" text="La Verdad Christian College" textWrap="true"/>
-					<Label class="school-add" text="McArthur Highway Apalit, Pampanga" textWrap="true"/>
+	<GridLayout columns="*" rows="*">
+		<ScrollView>
+			<StackLayout class="container">
+				<StackLayout class="lvcc">
+					<StackLayout class="school">
+						<Image class="school-logo" src="res://icon" stretch="none" horizontalAlignment="center" />
+						<Label class="school-name" text="La Verdad Christian College" textWrap="true"/>
+						<Label class="school-add" text="McArthur Highway Apalit, Pampanga" textWrap="true"/>
+					</StackLayout>
+				</StackLayout>
+				<StackLayout class="input-form">
+					<StackLayout  class="error-message" visibility="{{ errors ? 'visible' : 'collapsed' }}">
+						<Repeater items="{{ errors }}">
+							<Repeater.itemTemplate>
+								<StackLayout class="error-container">
+									<Label class="message" text="{{ title }}" />
+								</StackLayout>
+							</Repeater.itemTemplate>
+						</Repeater>
+					</StackLayout>
+					<StackLayout class="form-textField">
+						<GridLayout columns="*,auto" rows="auto">
+							<TextField
+								autocorrect="false"
+								hint="Username"
+								textWrap="true"
+								text="{{ username }}"
+								row="0"
+								col="0"/>
+							<Label text="&#xf007;" class="font-awesome form-icon fa" row="0" col="1"/>
+						</GridLayout>
+					</StackLayout>
+					<StackLayout class="form-textField">
+						<GridLayout columns="*,auto" rows="auto">
+							<TextField
+								autocorrect="false"
+								hint="Password"
+								secure="true"
+								autocorrect="false"
+								textWrap="true"
+								text="{{ password }}"
+								row="0"
+								col="0"/>
+							<Label text="&#xf023;" class="font-awesome form-icon fa" row="0" col="1"/>
+						</GridLayout>
+					</StackLayout>
+					<StackLayout>
+						<Button tap="doLogin" text="&#xf090; | Sign In" class="fa font-awesome loginBtn"/>
+					</StackLayout>
 				</StackLayout>
 			</StackLayout>
-			<StackLayout class="input-form">
-				<StackLayout  class="error-message" visibility="{{ errors ? 'visible' : 'collapsed' }}">
-					<Repeater items="{{ errors }}">
-						<Repeater.itemTemplate>
-							<StackLayout class="error-container">
-								<Label class="message" text="{{ title }}" />
-							</StackLayout>
-						</Repeater.itemTemplate>
-					</Repeater>
-				</StackLayout>
-				<StackLayout class="form-textField">
-					<GridLayout columns="*,auto" rows="auto">
-						<TextField
-							autocorrect="false"
-							hint="Username"
-							textWrap="true"
-							text="{{ username }}"
-							row="0"
-							col="0"/>
-						<Label text="&#xf007;" class="font-awesome form-icon fa" row="0" col="1"/>
-					</GridLayout>
-				</StackLayout>
-				<StackLayout class="form-textField">
-					<GridLayout columns="*,auto" rows="auto">
-						<TextField
-							autocorrect="false"
-							hint="Password"
-							secure="true"
-							autocorrect="false"
-							textWrap="true"
-							text="{{ password }}"
-							row="0"
-							col="0"/>
-						<Label text="&#xf023;" class="font-awesome form-icon fa" row="0" col="1"/>
-					</GridLayout>
-				</StackLayout>
-				<StackLayout>
-					<Button tap="doLogin" text="&#xf090; | Sign In" class="fa font-awesome loginBtn"/>
-				</StackLayout>
-			</StackLayout>
-		</StackLayout>
-	</ScrollView>
+		</ScrollView>
+	</GridLayout>
 </Page>
