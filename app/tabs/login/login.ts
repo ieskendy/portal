@@ -17,9 +17,9 @@ let pageObservable = new Observable();
 let errors = new ObservableArray.ObservableArray([]);
 
 export function pageLoaded(args: EventData) {
-	if(storageServices.get('student')) {
-		topmost().navigate("tabs/tabs-page");
-	}
+	// if(storageServices.get('student')) {
+	// 	topmost().navigate("tabs/tabs-page");
+	// }
 	page = <Page>args.object;
 	page.bindingContext = pageObservable;
 }
@@ -68,7 +68,7 @@ function requestLogin(credentials: {'username': string, 'password': string}) {
 			storageServices.store('student', response.student);
 			storageServices.store('user_token', {token: response.token});
 			storageServices.store('username', {username: response.student.username});
-			topmost().navigate("tabs/tabs-page");
+			topmost().navigate({moduleName: "tabs/tabs-page", clearHistory: true});
 			loader.hide();
 		} else {
 			loader.hide();

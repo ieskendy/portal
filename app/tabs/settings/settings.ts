@@ -27,5 +27,5 @@ export function isChangeUsername() {
 export function doLogout() {
   	console.log('Signing out');
   	storageService.flush();
-	  topmost().navigate("tabs/login/login");
+	  topmost().navigate({moduleName: "tabs/login/login", clearHistory: true});
 }

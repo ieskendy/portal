@@ -76,7 +76,7 @@ function requestAcademicYears() {
     httpService.get({uri: `/students/${studentData.student_id}/semesters`}, (response) => {
         if (response.error) {
             alert('Something went wrong! Please try again or check your connection');
-            topmost().navigate("tabs/home/home");
+            topmost().navigate("tabs/tabs-page");
             loader.hide();
         } else {
             let semesters = response;
@@ -115,7 +115,7 @@ function requestStudentPayments (academic_year: any) {
     httpService.get({uri: `/students/${studentData.student_id}/semesters/${academic_year}/payments`},
     (response) => {
         if (response.error) {
-            alert('404: Misc fee information not found');
+            alert('Sorry! Financial record not found');
             pageObservable.set('academic_year', true);
             loader.hide();
         } else {

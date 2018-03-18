@@ -92,7 +92,7 @@ function requestGrades(academic_year) {
 				pageObservable.set('academic_year', false);
    			}
 		} else {
-			alert('404: Grades not found');
+			alert('Grades not found');
             loader.hide();
 		}
 	}, () => {
@@ -128,9 +128,9 @@ function requestAcademicYears() {
 				loader.hide();
 			}
 		} else {
-			dialogs.alert('Requested data is not found!');
-			loader.hide();
-			topmost().navigate('views/home/home');
+			dialogs.alert('Sorry! Please try again');
+ 			loader.hide();
+			topmost().navigate('tabs/tabs-page');
 		}
 	}, (noConnection) => {
 		loader.hide();

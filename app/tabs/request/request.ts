@@ -81,7 +81,7 @@ function loadRequestedDocument(requestedDocuments) {
             'id': request.request_id,
             'document': request.document_type,
             'requested_at': request.requested_at,
-            'released_at': request.released_at
+            'status': request.status
         });
     });
 

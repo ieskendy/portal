@@ -33,7 +33,7 @@
 		                        />
 		                    </StackLayout>
 		                 	<StackLayout class="buttons">
-		                        <Button tap="submitAcademicYear" text="Submit" class="font-awesome dd-button"/>
+		                        <Button tap="submitAcademicYear" text="Show" class="font-awesome dd-button"/>
 		                    </StackLayout>
 				    	</StackLayout>
 					</StackLayout>

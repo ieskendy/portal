@@ -115,7 +115,7 @@ function requestDocuments() {
 function saveNewRequest(data: any) {
     httpService.post({uri: "/documents", data: data }, (response) => {
         if (response.error) {
-            alert('Internal error. Please try again');
+            alert('Sorry! Please try again.');
             loader.hide();
         } else {
             dialogs.alert({

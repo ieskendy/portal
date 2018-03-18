@@ -8,6 +8,8 @@
 			<NavigationButton ios.systemIcon="8" android.systemIcon="ic_menu_back" ios.position="left" tap="goBack"/>
 			<ActionItem tap="onChange" ios.systemIcon="12" android.systemIcon="ic_menu_search" ios.position="right"
 		visibility="{{ schedule_form ? 'collapsed' : 'visible' }}"/>
+			<ActionItem tap="onSave" ios.systemIcon="3" android.systemIcon="ic_menu_save" ios.position="right"
+		visibility="{{ schedule_form ? 'collapsed' : 'visible' }}"/>
 			<StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="center">
 				<Label class="actionBar-title" text="Course & Schedule" textWrap="true"/>
 			</StackLayout>
@@ -47,7 +49,7 @@
 			                    </StackLayout>
 				    		</StackLayout>
 		                 	<StackLayout class="buttons">
-		                        <Button tap="viewSchedule" text="Submit" class="font-awesome dd-button"/>
+		                        <Button tap="viewSchedule" text="Show" class="font-awesome dd-button"/>
 		                    </StackLayout>
 				    	</StackLayout>
 					</StackLayout>

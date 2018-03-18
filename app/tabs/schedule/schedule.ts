@@ -1,4 +1,5 @@
 import {topmost} from "ui/frame";
+import * as utils from "utils/utils";
 import {Http} from "../../services/http";
 import {Page} from "ui/page";
 import {Observable, EventData} from "data/observable";
@@ -58,6 +59,7 @@ export function viewSchedule() {
     });
 	let day = days.getValue(selectedday);
 	let section = sectionList.getValue(selectedsection);
+    pageObservable.set('section', section);
     if (!day && !section) {
         alert('Please fill up the form properly');
     } else {
@@ -65,6 +67,12 @@ export function viewSchedule() {
         pageObservable.set('schedule_form',false);
     }
         
+}
+
+export function onSave() {
+    let section = pageObservable.get('section');
+    console.log(section);
+    utils.openUrl(`${config.apiUrl}/schedules/${section}/download`);
 }
 
 export function onChange() {
@@ -152,6 +160,7 @@ function requestSchedules(section: any, day: any) {
         if (response.error) {
             loader.hide();
             alert('You dont have class in this day! Nice');
+            pageObservable.set('schedule_form',true);
         } else {
             pageObservable.set('schedule_form', false);
             let schedules = response;

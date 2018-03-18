@@ -39,7 +39,8 @@ export function schedule() {
 }
 
 export function document() {
-  	fetchStudentRequest();
+  	console.log('document');
+    fetchStudentRequest();
 }
 
 export function fees() {
@@ -48,7 +49,6 @@ export function fees() {
 
 function fetchStudentRequest() {
     httpService.get({uri: `/students/${studentData.student_id}/documents`}, (response) => {
-        console.log(JSON.stringify(response));
         if (response.error) {
           	topmost().navigate("tabs/request-form/request-form");
         } else {

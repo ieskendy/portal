@@ -51,7 +51,7 @@
 				    				<Label class="table-field" text="Date Requested" textWrap="true"/>
 				    			</StackLayout>
 				    			<StackLayout row="0" col="2">
-				    				<Label class="table-field" text="Date Released" textWrap="true"/>
+				    				<Label class="table-field" text="Status" textWrap="true"/>
 				    			</StackLayout>
 				    		</GridLayout>
 				    		<StackLayout>
@@ -61,7 +61,7 @@
 						                    <GridLayout rows="auto" columns="*,*,*">
 						                        <Label class="table-data" text="{{ document }}" textWrap="true" row="0" col="0"/>
 			                                    <Label class="table-data ctr" text="{{ requested_at }}" textWrap="true" row="0" col="1"/>
-			                                    <Label class="table-data ctr" text="{{ released_at }}" textWrap="true" row="0" col="2"/>
+			                                    <Label class="table-data ctr" text="{{ status }}" textWrap="true" row="0" col="2"/>
 						                    </GridLayout>
 						                </StackLayout>
 						            </Repeater.itemTemplate>

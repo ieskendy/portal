@@ -15,6 +15,7 @@ application.on(application.launchEvent, (args: application.ApplicationEventData)
 });
 
 application.on(application.suspendEvent, (args: application.ApplicationEventData) => {
+    storageService.flush();
     if (args.android) {
         console.log("Activity: " + args.android);
     } else if (args.ios) {
@@ -23,19 +24,22 @@ application.on(application.suspendEvent, (args: application.ApplicationEventData
 });
 
 application.on(application.resumeEvent, (args: application.ApplicationEventData) => {
+    let user = storageService.get('student');
+    if (user) {
+        application.start({ moduleName: 'tabs/tabs-page', clearHistory: true });
+    }
     if (args.android) {
         console.log("Activity: " + args.android);
-        let student = storageService.get('student');
-        if (!student) {
-            topmost().navigate({ moduleName: 'tabs/login/login', clearHistory: true });
-        }
     } else if (args.ios) {
         console.log("UIApplication: " + args.ios);
     }
 });
 
 application.on(application.exitEvent, (args: application.ApplicationEventData) => {
+    storageService.flush();
+    console.log('exit');
     if (args.android) {
+
         console.log("Activity: " + args.android);
     } else if (args.ios) {
         console.log("UIApplication: " + args.ios);
@@ -43,6 +47,7 @@ application.on(application.exitEvent, (args: application.ApplicationEventData) =
 });
 
 application.on(application.lowMemoryEvent, (args: application.ApplicationEventData) => {
+    storageService.flush();
     if (args.android) {
         console.log("Activity: " + args.android);
     } else if (args.ios) {
@@ -51,6 +56,7 @@ application.on(application.lowMemoryEvent, (args: application.ApplicationEventDa
 });
 
 application.on(application.uncaughtErrorEvent, (args: application.ApplicationEventData) => {
+    storageService.flush();
     if (args.android) {
         console.log("NativeScriptError: " + args.android);
     } else if (args.ios) {
